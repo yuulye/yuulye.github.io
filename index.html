@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg" href="img/man.svg">
+    <link rel="stylesheet" href="font-awesome/4.7.0/css/font-awesome.min.css">
     <title>yuulye</title>
     <style>
       * {
@@ -19,17 +21,29 @@
       table td {
         text-align: center;
       }
-      table td a {
+      table td > a {
         position: relative;
         display: inline-block;
         overflow: hidden;
         background: silver;
         border-radius: 50%;
       }
-      table td a img {
+      table td > a img {
         position: relative;
         top: 11px;
         width: 128px;
+      }
+      table td ul {
+        list-style: none;
+        font-size: 32px;
+        padding: 0;
+      }
+      table td ul li a {
+        text-decoration: none;
+      }
+      table td ul li {
+        display: inline-block;
+        margin: 0 4px;
       }
     </style>
   </head>
@@ -37,9 +51,31 @@
     <table>
       <tr>
         <td>
-        <a href="/">
-          <img src="img/man.svg">
-        </a>
+          <a href="/">
+            <img src="img/man.svg">
+          </a>
+          <ul>
+            <li>
+              <a href="https://plus.google.com/102832888196813116163" target="_blank">
+                <i style="color: #EB4235;" class="fa fa-google-plus-circle"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://yuulye.blogspot.com/" target="_blank">
+                <img style="width: 24px;" src="http://yuulye.blogspot.com/favicon.ico">
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/yuulye" target="_blank">
+                <i style="color: black;" class="fa fa-github"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://yuulye.wordpress.com/" target="_blank">
+                <i style="color: #1394C7;" class="fa fa-wordpress"></i>
+              </a>
+            </li>
+          </ul>
         </td>
       </tr>
     </table>

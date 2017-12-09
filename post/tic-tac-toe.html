@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from yuulye.dev/post/tic-tac-toe by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Dec 2017 09:05:18 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="icon" href="../img/logo.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tic Tac Toe - yuulye</title>
+    <link
+      rel="stylesheet"
+      href="../font/font-awesome/4.7.0/css/font-awesome.min.css"
+    >
+    <style>
+        @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-Thin.ttf);
+        font-weight: 100;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-ThinItalic.ttf);
+        font-weight: 100;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-ExtraLight.ttf);
+        font-weight: 200;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-ExtraLightItalic.ttf);
+        font-weight: 200;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-Light.ttf);
+        font-weight: 300;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-LightItalic.ttf);
+        font-weight: 300;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-Regular.ttf);
+        font-weight: 400;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-Italic.ttf);
+        font-weight: 400;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-Medium.ttf);
+        font-weight: 500;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-MediumItalic.ttf);
+        font-weight: 500;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-SemiBold.ttf);
+        font-weight: 600;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-SemiBoldItalic.ttf);
+        font-weight: 600;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-Bold.ttf);
+        font-weight: 700;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-BoldItalic.ttf);
+        font-weight: 700;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-ExtraBold.ttf);
+        font-weight: 800;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-ExtraBoldItalic.ttf);
+        font-weight: 800;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-Black.ttf);
+        font-weight: 900;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(../font/Raleway/Raleway-BlackItalic.ttf);
+        font-weight: 900;
+        font-style: italic;
+    }
+</style>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Raleway, sans-serif;
+      }
+    </style>
+    <style>
+body {
+  width: 100%;
+  margin: 0;
+  padding: 72px 8px 48px;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 8px;
+  padding-top: 16px;
+  background: white;
+}
+.header a {
+  text-decoration: none;
+}
+.header img {
+  width: 24px;
+}
+.header h1 {
+  font-size: 24px;
+  display: inline-block;
+  margin: 0;
+  padding-left: 4px;
+  position: relative;
+  top: -2px;
+}
+
+.header .menu {
+  padding-right: 24px;
+  position: relative;
+  top: -4px;
+  float: right;
+}
+.header .menu a {
+  font-size: 24px;
+  color: black;
+}
+
+div.highlight {
+  overflow: auto;
+}
+
+@media (min-width: 576px) {
+  body {
+    width: 576px;
+    margin: 0 auto;
+  }
+
+  .header {
+    width: inherit;
+  }
+}
+</style>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110805480-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110805480-1');
+</script>
+  </head>
+  <body>
+    
+So You know about HTML, CSS and JavaScript? Want to build something with them?
+Those three web technologies can be used to create a web page. Have You done that?
+Want something more? How about creating a simple Tic Tac Toe game?
+This post explains how I build Tic Tac Toe Game In 3 simple steps<!--more-->
+
+<br/>
+<br/>
+<br/>
+<div style="text-align: center">
+  <a
+    href="https://gist.github.com/yuulye/c14c88e10ed01cbb5d1aaade30a24c67"
+    target="_blank"
+  >Code</a>
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  &nbsp;
+  <a href="../games/tictactoe.html">Game</a>
+</div>
+
+<style>
+table.tic-tac-toe-board {
+  margin: 0 auto;
+  border: 4px solid black;
+  border-spacing: 0;
+}
+table.tic-tac-toe-board td {
+  border: 4px solid black;
+  width: 64px;
+  height: 64px;
+}
+</style>
+
+<br/>
+<br/>
+<h2>#1 The Board</h2>
+
+<div>
+  <table class="tic-tac-toe-board">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <div style="text-align: center;">
+    <em>The Board</em>
+  </div>
+</div>
+
+<p>
+Start with creating the board.
+In this case the game needs a board that has 3x3 grid,
+see <i>The Board</i> figure.
+
+Now, what can I do in order to get that look?
+
+I guess there are several ways to do that, it can be done using
+nested <code>div</code>, css, or javascript.
+
+But this time I will go with native HTML element.
+
+I decide to use HTML element to create base canvas for the game.
+
+The element I use is <code>table</code> along with its components
+<code>tr</code> and <code>td</code>.
+
+The reason I use <code>table</code> element is because 
+the structure that match for this kind of situation.
+</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">table</span>&gt;
+</pre></div>
+
+3 times this block to create 3 rows
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">tr</span>&gt;
+    &lt;<span style="color: #007700">td</span>&gt;&lt;/<span style="color: #007700">td</span>&gt;
+    &lt;<span style="color: #007700">td</span>&gt;&lt;/<span style="color: #007700">td</span>&gt;
+    &lt;<span style="color: #007700">td</span>&gt;&lt;/<span style="color: #007700">td</span>&gt;
+&lt;/<span style="color: #007700">tr</span>&gt;
+</pre></div>
+
+...
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;/<span style="color: #007700">table</span>&gt;
+</pre></div>
+
+<h3>
+I See Nothing
+</h3>
+
+<p>
+  After writing that code, I open it in a browser.
+  But there is something wrong, I don't see anything in the browser.
+  I debug the problem and found some...
+</p>
+
+<ol>
+  <li>
+    <b>No Content</b>
+    <p>
+      Insert some text inside <code>td</code>
+    </p>
+  </li>
+  <li>
+    <b>No Border</b>
+    <p>
+      Add <code>border</code> attribute with value <code>1</code>
+      to the <code>table</code> tag,
+      I drop the content from <code>td</code> because I can already see
+      something
+    </p>
+  </li>
+</ol>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">table</span> <span style="color: #0000CC">border</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;1&quot;</span>&gt;
+</pre></div>
+
+<p>
+reload, and...
+</p>
+
+<div>
+  <table border="1">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+
+<p>
+what is that? I zoom in 500%...
+</p>
+
+<div style="height: 110px;">
+  <table border="1" style="transform: scale(5);position: relative;transform-origin: 0 0;">
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</div>
+
+<br/>
+<br/>
+<h2>#2 Prettify The Table</h2>
+
+<p>
+  Now, I'm going to change the table styles, to be exactly like <i>The Board</i>
+  figure. first thing to do is make the <i>table data</i> bigger, so I don't
+  have to zoom. Let say I give 64px width and height using css and it is
+  relative to a class given to the table.
+</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">style</span>&gt;
+<span style="color: #007700">table</span> <span style="color: #007700">td</span> {
+    <span style="color: #008800; font-weight: bold">width</span>: <span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333399; font-weight: bold">px</span>;
+    <span style="color: #008800; font-weight: bold">height</span>: <span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333399; font-weight: bold">px</span>;
+}
+&lt;/<span style="color: #007700">style</span>&gt;
+
+&lt;<span style="color: #007700">table</span> <span style="color: #0000CC">border</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;1&quot;</span>&gt;
+</pre></div>
+
+<style>
+  .the-board1 td{
+    width: 64px;
+    height: 64px;
+  }
+</style>
+
+<table class="the-board1" border="1">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<p>
+I notice something that the <code>td</code> element maybe not computed with
+width and height of 64px. This may cause issue that the block will not be
+square. To make life easier, lets give it CSS3 property <b>box-sizing</b>
+with value <b>border-box</b> to make life easier. This gives me easier
+calculation, the padding and border will be included in the width and height,
+so I will not worry about thinking of how I set width to 64px and get 74px.
+</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #333333">*</span> {
+    <span style="color: #008800; font-weight: bold">box-sizing</span>: <span style="color: #008800; font-weight: bold">border-box</span>;
+}
+</pre></div>
+
+<p>
+The next thing is <i>border</i>. I need to do some changes to the border because
+I don't really understand how the default border table work. So, to change the
+border I first add border to the <code>td</code> selector and remove default
+table border. I give it some width to get bigger look
+~ <code>border: 8px solid black;</code>
+</p>
+
+<style>
+  .the-board2 td{
+    width: 64px;
+    height: 64px;
+    border: 8px solid black;
+  }
+</style>
+
+<table class="the-board2">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<p>
+OK. Now, the problem for me is there is gap between blocks. After debug, I find
+that there are property called <code>border-spacing</code> in the
+<code>table</code> style and it has 2px default value. So, I override the value
+with 0.
+</p>
+
+<style>
+  .the-board3 {
+    border-spacing: 0;
+  }
+  .the-board3 td{
+    width: 64px;
+    height: 64px;
+    border: 8px solid black;
+  }
+</style>
+
+<table class="the-board3">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<p>
+But now another problem appear, the border between <code>td</code>s not the same.
+The logic is because joining border between <code>td</code>s in the middle.
+How do I solve this? With another border for the table.
+</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #007700">table</span><span style="color: #333333">,</span> <span style="color: #007700">table</span> <span style="color: #007700">td</span> {
+  <span style="color: #008800; font-weight: bold">border</span>: <span style="color: #0000DD; font-weight: bold">8</span><span style="color: #333399; font-weight: bold">px</span> <span style="color: #008800; font-weight: bold">solid</span> <span style="color: #008800; font-weight: bold">black</span>;
+}
+<span style="color: #007700">table</span> {
+  <span style="color: #008800; font-weight: bold">border-spacing</span>: <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+<span style="color: #007700">table</span> <span style="color: #007700">td</span>{
+  <span style="color: #008800; font-weight: bold">width</span>: <span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333399; font-weight: bold">px</span>;
+  <span style="color: #008800; font-weight: bold">height</span>: <span style="color: #0000DD; font-weight: bold">64</span><span style="color: #333399; font-weight: bold">px</span>;
+}
+</pre></div>
+
+<style>
+  .the-board4, .the-board4 td {
+    border: 8px solid black;
+  }
+  .the-board4 {
+    border-spacing: 0;
+  }
+  .the-board4 td{
+    width: 64px;
+    height: 64px;
+  }
+</style>
+
+<table class="the-board4">
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+
+<br/>
+<br/>
+<h2>#3 The Action</h2>
+
+<p>
+  <i>The Board</i> is ready, now is the time for some actions. This is the time
+  when JavaScript enter. What kind of action I am going to handle? onclick?
+  Yes, exactly! Where do I need to put the onclick action? It can be in the
+  <code>html</code>, <code>body</code>, <code>td</code> (the blocks). The
+  most logical answer is in the <code>td</code> because that is where I need
+  to click, but the problem is I need to give each <code>td</code>
+  <code>onclick</code> code and that is not very effective. The solution for
+  this is I put the <code>onclick</code> in the <code>table</code> element.
+</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">table</span> <span style="color: #0000CC">id</span><span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;board&quot;</span>&gt;
+</pre></div>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span>&lt;<span style="color: #007700">script</span>&gt;
+  console.log(board);
+  board.onclick <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(e) {
+    console.log(e);
+  };
+&lt;/<span style="color: #007700">script</span>&gt;
+</pre></div>
+
+<p>
+  <b>board</b> variable automatically generated for the page script. I can use
+  it and it points to the <code>table</code> element. Now, how I detect the
+  <code>td</code> elements being clicked? See the variable called <code>e</code>
+  from the function <code>onclick</code>. The <code>e</code> variable has
+  bunch of properties, one of them I can verify which <code>td</code> is clicked
+  . The problem is every browser has different value and ways to access it.
+  Below is the code to handle for some browsers.
+</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008800; font-weight: bold">function</span> getClickedElement(e) {
+    <span style="color: #008800; font-weight: bold">if</span> (e.path) { <span style="color: #888888">// chrome</span>
+        <span style="color: #008800; font-weight: bold">return</span> e.path[<span style="color: #0000DD; font-weight: bold">0</span>];
+    }
+    <span style="color: #008800; font-weight: bold">if</span> (e.explicitOriginalTarget) { <span style="color: #888888">// firefox</span>
+        <span style="color: #008800; font-weight: bold">return</span> e.explicitOriginalTarget;
+    }
+    <span style="color: #008800; font-weight: bold">if</span> (e.target) { <span style="color: #888888">// edge, internet explorer</span>
+        <span style="color: #008800; font-weight: bold">return</span> e.target;
+    }
+    console.error(<span style="background-color: #fff0f0">&quot;can&#39;t find element!&quot;</span>);
+}
+</pre></div>
+
+<p>
+  Next, I need to assign something to the clicked element. I simply put an 
+  "X" or "O" inside the <code>td</code> element to mark the moves.
+  Once block clicked, it can't be clicked again, so I add a property to the
+  element so it knows not to make another action. Another thing is it will 
+  take turns between X and O, to handle this I create a variable called
+  <code>current</code> it will change between X and O every successful new
+  click.
+</p>
+
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span></span><span style="color: #008800; font-weight: bold">var</span> x <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;X&quot;</span>, o <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;O&quot;</span>;
+<span style="color: #008800; font-weight: bold">var</span> current <span style="color: #333333">=</span> x;
+board.onclick <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">function</span>(e) {
+    <span style="color: #008800; font-weight: bold">var</span> td <span style="color: #333333">=</span> getClickedElement(e);
+    <span style="color: #008800; font-weight: bold">if</span> (td <span style="color: #333333">&amp;&amp;</span> <span style="color: #333333">!</span>td.clicked) {
+        td.clicked <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">true</span>;
+        td.innerText <span style="color: #333333">=</span> current;
+        current <span style="color: #333333">=</span> current<span style="color: #333333">==</span>x<span style="color: #333333">?</span>o<span style="color: #333333">:</span>x;
+    }
+};
+</pre></div>
+
+<p>
+Alright, the game is ready! Although there are more improvements can be added
+but right now I can play the game. Refresh the page to get initial state, and
+for the win, you can see for yourself, haha!
+</p>
+
+<br/>
+<br/>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://yuulye.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            <div class="header">
+  <a href="../index.html">
+    <img src="../img/logo.svg">
+  </a>
+  <h1>Tic Tac Toe</h1>
+  <div class="menu">
+    <a href="#disqus_thread">
+      <i class="fa fa-comment-o"></i>
+    </a>
+  </div>
+</div>
+
+      </body>
+
+<!-- Mirrored from yuulye.dev/post/tic-tac-toe by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Dec 2017 09:05:18 GMT -->
+</html>

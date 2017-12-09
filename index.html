@@ -1,125 +1,175 @@
 <!DOCTYPE html>
 <html>
   
-<!-- Mirrored from yuulye.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Dec 2017 04:21:50 GMT -->
+<!-- Mirrored from yuulye.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Dec 2017 09:03:00 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg" href="img/drawing5e1f.png?v=2">
+    <link rel="icon" href="img/logo.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Home - yuulye</title>
     <link
       rel="stylesheet"
       href="font/font-awesome/4.7.0/css/font-awesome.min.css"
     >
-    <title>yuulye</title>
     <style>
-@foreach ($titi as $weight => $font)
-    <br />
-<b>Notice</b>:  Undefined variable: font in <b>D:\workspace\yuulye\dev-yuulye.github.io\font.php</b> on line <b>20</b><br />
-<br />
-<b>Notice</b>:  Undefined variable: font in <b>D:\workspace\yuulye\dev-yuulye.github.io\font.php</b> on line <b>20</b><br />
-<br />
-<b>Notice</b>:  Undefined variable: font in <b>D:\workspace\yuulye\dev-yuulye.github.io\font.php</b> on line <b>21</b><br />
-<br />
-<b>Notice</b>:  Undefined variable: font in <b>D:\workspace\yuulye\dev-yuulye.github.io\font.php</b> on line <b>21</b><br />
-    @font-face {
-        font-family: 'TitilliumWeb';
-        src: url({{ asset(
-            '/font/Titillium_Web/TitilliumWeb-'.$_font.'.ttf'
-        ) }});
-        font-weight: {{ $weight }};
+        @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-Thin.ttf);
+        font-weight: 100;
     }
     @font-face {
-        font-family: 'TitilliumWeb';
-        src: url({{ asset(
-            '/font/Titillium_Web/TitilliumWeb-'.$_fontItalic.'.ttf'
-        ) }});
-        font-weight: {{ $weight }};
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-ThinItalic.ttf);
+        font-weight: 100;
         font-style: italic;
     }
-@endforeach
+        @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-ExtraLight.ttf);
+        font-weight: 200;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-ExtraLightItalic.ttf);
+        font-weight: 200;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-Light.ttf);
+        font-weight: 300;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-LightItalic.ttf);
+        font-weight: 300;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-Regular.ttf);
+        font-weight: 400;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-Italic.ttf);
+        font-weight: 400;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-Medium.ttf);
+        font-weight: 500;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-MediumItalic.ttf);
+        font-weight: 500;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-SemiBold.ttf);
+        font-weight: 600;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-SemiBoldItalic.ttf);
+        font-weight: 600;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-Bold.ttf);
+        font-weight: 700;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-BoldItalic.ttf);
+        font-weight: 700;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-ExtraBold.ttf);
+        font-weight: 800;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-ExtraBoldItalic.ttf);
+        font-weight: 800;
+        font-style: italic;
+    }
+        @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-Black.ttf);
+        font-weight: 900;
+    }
+    @font-face {
+        font-family: 'Raleway';
+        src: url(font/Raleway/Raleway-BlackItalic.ttf);
+        font-weight: 900;
+        font-style: italic;
+    }
 </style>
     <style>
-    @font-face {
-    font-family: PermanentMarker;
-    src: url(font/Permanent_Marker/PermanentMarker-Regular.ttf);
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Raleway, sans-serif;
+      }
+    </style>
+    <style>
+@media (min-width: 576px) {
+  body {
+    width: 576px;
+    margin: 0 auto;
+  }
 }
 
-* {
-  box-sizing: border-box;
-}
-html, body {
-  font-family: TitilliumWeb, sans-serif;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-table.center {
-  width: 100%;
-  height: 100%;
-}
-table.center td {
+.header {
+  padding-top: 24px;
+  padding-bottom: 16px;
   text-align: center;
 }
-table.center td > p {
-  font-family: PermanentMarker;
-  font-size: x-large;
-}
-table.center td > a {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-}
-table.center td > a img {
-  position: relative;
+.header img {
   width: 64px;
 }
-table.center td ul {
-  list-style: none;
-  font-size: 32px;
+
+.footer {
+  text-align: center;
+  padding: 16px 0;
+}
+.footer > ul {
   padding: 0;
 }
-table.center td ul li a {
-  text-decoration: none;
-}
-table.center td ul li {
+.footer > ul > li {
   display: inline-block;
-  margin: 0 4px;
+  margin: 0 8px;
 }
-
-.news-wrapper {
-  /*background: #333;*/
-  padding: 4px 0;
-  height: 160px;
-  position: relative;
-}
-.news-wrapper table.button {
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  height: 100%;
+.footer > ul > li > a > i {
   font-size: 32px;
 }
-.news-wrapper table {
-  padding: 16px;
-}
-.news-wrapper table.right {
-  right: 0;
-}
 
-a.news-item {
+.news-wrapper > div {
+  display: block;
+  padding-bottom: 16px;
   text-decoration: none;
-  /*color: #ccc;*/
   color: #333;
 }
-.news-item h3 {
+.news-wrapper > div > h3, .news-wrapper > div > p {
+  margin: 0;
+}
+.news-wrapper > div > h3 {
+  font-weight: 500;
+}
+.news-wrapper > div > p {
+  font-size: 14px;
   font-weight: 300;
 }
-.news-item p {
-  font-weight: 100;
-}
-    </style>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+</style>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110805480-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -130,167 +180,38 @@ a.news-item {
 </script>
   </head>
   <body>
-
-    
-    <table class="center" id="mainElement" style="
-          ">
-      <tr>
-        <td>
-
-          <a href="index.html">
-            <img src="img/drawing.svg">
-          </a>
-
-          <div class="news-wrapper">
-  <table class="center">
-    <tr>
-      <td>
-                  <a
-            href="https://briefcoding.blogspot.com/"
-            class="news-item"
-            style="display: none;"
-          >
-            <h3><u>Brief Coding</u></h3>
-            <p>
-              Blog about quick code            </p>
-          </a>
-                  <a
-            href="https://briefcoding.blogspot.com/2017/11/building-tic-tac-toe-game-using-html.html"
-            class="news-item"
-            style="display: none;"
-          >
-            <h3><u>Tic Tac Toe</u></h3>
-            <p>
-              Built using HTML, CSS and JavaScript            </p>
-          </a>
-                  <a
-            href="https://briefcoding.blogspot.com/2017/11/minimalist-blogger-theme-code.html"
-            class="news-item"
-            style="display: inline-block;"
-          >
-            <h3><u>Blogger Theme</u></h3>
-            <p>
-              the most minimalist blogger code            </p>
-          </a>
-              </td>
-    </tr>
-  </table>
-  <table id="newsLeft" class="button left">
-    <tr>
-      <td>
-        <i class="fa fa-angle-left"></i>
-      </td>
-    </tr>
-  </table>
-  <table id="newsRight" class="button right">
-    <tr>
-      <td>
-        <i class="fa fa-angle-right"></i>
-      </td>
-    </tr>
-  </table>
+    <div class="header">
+  <img src="img/logo.svg">
 </div>
-          <ul>
-  <li>
-    <a
-      href="https://plus.google.com/102832888196813116163"
-      target="_blank"
-    >
-      <i style="color: #EB4235;" class="fa fa-google-plus-circle"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://github.com/yuulye" target="_blank">
-      <i style="color: black;" class="fa fa-github"></i>
-    </a>
-  </li>
-  <li>
-    <a href="https://briefcoding.blogspot.com/" target="_blank">
-      <img style="height: 24px;" src="img/bc.svg">
-    </a>
-  </li>
-  <li>
-    <a href="tictactoe/index.html">
-      <img style="height: 24px;" src="img/tictactoe.svg">
-    </a>
-  </li>
-</ul>
-          
-        </td>
-      </tr>
-    </table>
-    <script>(function(){
+<div class="news-wrapper">
+    <div>
+    <h3>Tic Tac Toe</h3>
+    <p>
+      So You know about HTML, CSS and JavaScript? Want to build something with them? Those three web technologies can be used to create a web page. Have You done that? Want something more? How about creating a simple Tic Tac Toe game? This post explains how I build Tic Tac Toe Game In 3 simple steps
+      <a href="post/tic-tac-toe.html">
+        read more...
+      </a>
+    </p>
+  </div>
+  </div>
+<div class="footer">
+  <ul>
+    <li>
+      <a
+        href="https://plus.google.com/102832888196813116163"
+        target="_blank"
+      >
+        <i style="color: #EB4235;" class="fa fa-google-plus-circle"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/yuulye" target="_blank">
+        <i style="color: black;" class="fa fa-github"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+      </body>
 
-  console.log('initializing...');
-
-  var i = 0;
-
-  function unfade(element, display) {
-    var op = 0.1;  // initial opacity
-    element.style.display = display;
-    var timer = setInterval(function () {
-        if (op >= 1){
-            clearInterval(timer);
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op += op * 0.1;
-    }, 10);
-}
-
-function fade(element, display) {
-  var op = 1;  // initial opacity
-  var timer = setInterval(function () {
-      if (op <= 0.1){
-          clearInterval(timer);
-          element.style.display = display;
-      }
-      element.style.opacity = op;
-      element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-      op -= op * 0.1;
-  }, 50);
-}
-
-function swipe(left) {
-  var news = document.getElementsByClassName("news-item");
-  var current = -1;
-  for (var i = 0;i < news.length;i++) {
-    if (news[i].style.display == 'inline-block') {
-      current = i;
-    }
-    news[i].style.display = 'none';
-  }
-  if (left) {
-    current--;
-    if (current < 0) {
-      current = news.length - 1;
-    }
-  } else {
-    current++;
-    if (current >= news.length) {
-      current = 0;
-    }
-  }
-  news[current].style.display = 'inline-block';
-  direction = left;
-}
-
-  
-  var direction = false;
-
-  newsLeft.onclick = function() {swipe(true);};
-  newsRight.onclick = function() {swipe(false)};
-
-  var swipeInterval = setInterval(function() {
-    swipe(direction);
-  }, 5000);
-
-  console.log('script loaded, ready to rock!');
-
-
-})();
-</script>
-  </body>
-
-<!-- Mirrored from yuulye.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Dec 2017 04:21:52 GMT -->
+<!-- Mirrored from yuulye.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Dec 2017 09:04:47 GMT -->
 </html>

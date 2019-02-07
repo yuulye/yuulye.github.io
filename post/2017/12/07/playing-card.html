@@ -1,256 +1,102 @@
 <!DOCTYPE html>
 <html>
   
-<!-- Mirrored from yuulye-io/post/playing-card by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Dec 2017 08:51:09 GMT -->
+<!-- Mirrored from 192.168.43.21/post/2017/12/07/playing-card by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Feb 2019 00:31:18 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
-    <link rel="icon" href="../img/logo.png"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Playing Card - yuulye</title>
-    <link
-      rel="stylesheet"
-      href="../font/font-awesome/4.7.0/css/font-awesome.min.css"
-    >
+    <title>yuulye</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../../../../tp/font-awesome-4.7.0/css/font-awesome.css">
     <style>
-        @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-Thin.ttf);
-        font-weight: 100;
-    }
-    @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-ThinItalic.ttf);
-        font-weight: 100;
-        font-style: italic;
-    }
-        @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-ExtraLight.ttf);
-        font-weight: 200;
-    }
-    @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-ExtraLightItalic.ttf);
-        font-weight: 200;
-        font-style: italic;
-    }
-        @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-Light.ttf);
-        font-weight: 300;
-    }
-    @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-LightItalic.ttf);
-        font-weight: 300;
-        font-style: italic;
-    }
-        @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-Regular.ttf);
-        font-weight: 400;
-    }
-    @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-Italic.ttf);
-        font-weight: 400;
-        font-style: italic;
-    }
-        @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-Medium.ttf);
-        font-weight: 500;
-    }
-    @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-MediumItalic.ttf);
-        font-weight: 500;
-        font-style: italic;
-    }
-        @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-SemiBold.ttf);
-        font-weight: 600;
-    }
-    @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-SemiBoldItalic.ttf);
-        font-weight: 600;
-        font-style: italic;
-    }
-        @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-Bold.ttf);
-        font-weight: 700;
-    }
-    @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-BoldItalic.ttf);
-        font-weight: 700;
-        font-style: italic;
-    }
-        @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-ExtraBold.ttf);
-        font-weight: 800;
-    }
-    @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-ExtraBoldItalic.ttf);
-        font-weight: 800;
-        font-style: italic;
-    }
-        @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-Black.ttf);
-        font-weight: 900;
-    }
-    @font-face {
-        font-family: 'Raleway';
-        src: url(../font/Raleway/Raleway-BlackItalic.ttf);
-        font-weight: 900;
-        font-style: italic;
-    }
-</style>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
       body {
-        font-family: Raleway, sans-serif;
+        margin: 0;
+        padding: 0;
       }
     </style>
     <style>
-body {
-  width: 100%;
-  margin: 0;
-  padding: 72px 8px 48px;
-}
-
-.header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  padding: 4px;
-  padding-top: 16px;
-  background: white;
-}
-.header a {
-  text-decoration: none;
-}
-.header img {
-  width: 16px;
-}
-.header h1 {
-  font-size: 16px;
-  display: inline-block;
-  margin: 0;
-  padding-left: 4px;
-  position: relative;
-  top: -4px;
-  color: black;
-  font-weight: 200;
-}
-.header h1 small sub {
-  position: relative;
-  top: -4px;
-  font-weight: 200;
-}
-
-.header .menu {
-  padding-right: 24px;
-  position: relative;
-  top: -4px;
-  float: right;
-}
-.header .menu a {
-  font-size: 16px;
-  color: black;
-}
-
-.footer {
-  border-top: 1px solid silver;
-  margin-top: 32px;
-  font-size: 12px;
-  word-break: break-all;
-}
-
-.quote {
-  font-weight: 200;
-}
-.quote:before {
-  display: block;
-  height: 0;
-  content: "“";
-  margin-left: -.95em;
-  font: italic 400%/1 "Times New Roman", serif;
-  color: #999;
-}
-
-
-div.highlight {
-  overflow: auto;
-}
-
-@media (min-width: 576px) {
-  body {
-    width: 576px;
-    margin: 0 auto;
+  div.nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    border-top: 1px solid black;
+    padding: 4px;
+  }
+  ._content {
+    padding: 8px;
+    padding-bottom: 64px;
   }
 
-  .header {
-    width: inherit;
+  .footer {
+    border-top: 1px solid silver;
+    margin-top: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    font-size: 12px;
+    word-break: break-all;
   }
-}
+
+  .quote {
+    font-weight: 200;
+  }
+  .quote:before {
+    display: block;
+    height: 0;
+    content: "“";
+    margin-left: -.95em;
+    font: italic 400%/1 "Times New Roman", serif;
+    color: #999;
+  }
+
+  a.nostyle {
+    text-decoration: none;
+  }
+
+  pre {
+    overflow: auto;
+  }
 </style>
 
 <style>
-#table {
-  text-align: center;
-}
+  #table {
+    text-align: center;
+  }
 
-.card {
-  cursor: pointer;
-  margin: 2px;
-  display: inline-block;
-  border: 2px solid black;
-  border-radius: 4px;
-  width: 44px;
-  height: 52px;
-}
-.card table {
-  width: 100%;
-  height: 100%;
-}
-.card td {
-  width: 50%;
-  display: inline-block;
-  text-align: center;
-}
-.card .symbol, .card .number {
-  font-size: 16px;
-}
-.card .bottom {
-  transform: rotate(180deg);
-}
-.card.red {
-  color: red;
-}
+  .card {
+    cursor: pointer;
+    margin: 2px;
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 4px;
+    width: 44px;
+    height: 52px;
+  }
+  .card table {
+    width: 100%;
+    height: 100%;
+  }
+  .card td {
+    display: inline-block;
+    text-align: center;
+  }
+  .card .symbol, .card .number {
+    font-size: 12px;
+  }
+  .card .bottom {
+    transform: rotate(180deg);
+  }
+  .card.red {
+    color: red;
+  }
 </style>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110805480-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-110805480-1');
-</script>
   </head>
   <body>
-    
-<div style="text-align: center;padding: 32px;">
-  <a href="../games/playing-card.html">
+      <div class="_content">
+    <div style="text-align: center;padding: 16px;">
+  <a href="../../../../game/playing-card.html">
     <h1>
     Play Game
     </h1>
@@ -867,50 +713,16 @@ div.highlight {
     1:42 PM
   </div>
 </div>
-
-<br/>
-<br/>
-<div id="disqus_thread"></div>
-<script>
-
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-/*
-var disqus_config = function () {
-this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
-*/
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://yuulye.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                            <div class="header">
-  <a href="../index.html">
-    <img src="../img/logo.svg">
-    <h1>
-      Playing Card
-      <small>
-        <sub>
-          &middot;
-          Dec 7
-        </sub>
-      </small>
-    </h1>
-  </a>
-  <div class="menu">
-    <a href="#disqus_thread">
-      <i class="fa fa-comment-o"></i>
-    </a>
   </div>
-</div>
-
+  <div class="nav">
+    <a href="../../../../index.html" class="nostyle">
+      &nbsp;&nbsp;
+      <i class="fa fa-home"></i>
+      &nbsp;&nbsp;
+    </a>
+    12/07 &#039;17 &middot; Playing Card
+  </div>
       </body>
 
-<!-- Mirrored from yuulye-io/post/playing-card by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Dec 2017 08:51:11 GMT -->
+<!-- Mirrored from 192.168.43.21/post/2017/12/07/playing-card by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Feb 2019 00:31:18 GMT -->
 </html>

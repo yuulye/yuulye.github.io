@@ -41,7 +41,8 @@ _Explanation_ -- a statement or account that makes something clear. #sorry
 ```
 [ASCII Art source](https://www.asciiart.eu/people/men)
 
----> Opens a Web Browser ---> Go to [Site](http://yuulye.github.io/game/tictactoe/v2)
+---> Opens a Web Browser ---> Go to [Site](https://yuulye.github.io)
+---> Click link [Project T](https://yuulye.github.io/game/t)
 ---> Play the Game!
 
 ### Game

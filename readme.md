@@ -10,6 +10,27 @@ original sources:
       - ``` $ httrack site```
       - ``` $ cd site```
 
+original files for Project T (on refactor, still moving things)
+
+```
+index
+`- t
+    `- extra
+    `- script
+    `- style
+```
+------------------------------------
+
+direct links:
+
+- [index](https://github.com/yuulye/php.yuulye.github.io/blob/master/resources/views/game/t.blade.php)
+- [extra](https://github.com/yuulye/php.yuulye.github.io/blob/master/resources/views/game/t/extra.blade.php)
+- [script](https://github.com/yuulye/php.yuulye.github.io/blob/master/resources/views/game/t/script.blade.js); **note** - still very dirty
+- [style](https://github.com/yuulye/php.yuulye.github.io/blob/master/resources/views/game/t/style.blade.css)
+
+
+------------------------------------
+
 ## The Program Design / FlowChart / & Explanation
 
 _Program Design_ -- a process that an organization uses to develop a program.

@@ -1,6 +1,15 @@
 Project T -- Read me, like you've never read before
 ===
 
+original sources:
+
+  - [github.com/dwijpr/t](https://github.com/dwijpr/t): for commit histories, etc.
+  - [core php.yuulye.github.io](https://github.com/yuulye/php.yuulye.github.io) + httrack
+      - ``` $ git clone https://github.com/yuulye/yuulye.github.io```
+      - copy yuulye.github.io folder ---> site
+      - ``` $ httrack site```
+      - ``` $ cd site```
+
 ## The Program Design / FlowChart / & Explanation
 
 _Program Design_ -- a process that an organization uses to develop a program.
@@ -46,6 +55,7 @@ Atari Controller
 /________/ /
 |________|/   dew
 ```
+[ASCII Art source](https://www.asciiart.eu/computers/atari)
 
 Atari ---> Nigiri (in Go/Baduk/Weiqi) [Play Go with me](https://online-go.com/player/588586/) / Randomize turn
 ---> player/AI turn

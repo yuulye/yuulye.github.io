@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   
-<!-- Mirrored from 192.168.43.21/game/tic-tac-toe by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Feb 2019 00:31:34 GMT -->
+<!-- Mirrored from 192.168.43.21/game/tic-tac-toe by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Feb 2019 07:12:39 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <title>yuulye</title>
@@ -21,9 +21,7 @@
 * {
 	box-sizing: border-box;
 }
-</style>
 
-<style>
 html, body {
 	height: 100%;
 }
@@ -33,145 +31,150 @@ body {
 }
 
 @font-face {
-font-family: PermanentMarker;
-src: url(../font/Permanent_Marker/PermanentMarker-Regular.ttf);
+    font-family: PermanentMarker;
+    src: url(../font/Permanent_Marker/PermanentMarker-Regular.ttf);
 }
 
 .wrapper {
-width: 100%;
-height: 100%;
+    width: 100%;
+    height: 100%;
 }
 .wrapper td {
-position: relative;
-text-align: center;
+    position: relative;
+    text-align: center;
 }
 .wrapper td > div.board-wrapper {
-position: relative;
-display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 #board {
-border-spacing: 8px;
-font-family: PermanentMarker;
-font-size: 40px;
-font-weight: bold;
-background: silver;
+    border-spacing: 8px;
+    font-family: PermanentMarker;
+    font-size: 40px;
+    font-weight: bold;
+    background: silver;
 }
 #board td {
-cursor: pointer;
-background: white;
-width: 64px;
-height: 64px;
-text-align: center;
+    cursor: pointer;
+    background: white;
+    width: 64px;
+    height: 64px;
+    text-align: center;
 }
 
 .board-wrapper {
-position: relative;
+    position: relative;
 }
 .board-wrapper div.board-wrapper, .board-wrapper div.styler {
-position: absolute;
-background: white;
+    position: absolute;
+    background: white;
 }
 .board-wrapper div.top {
-top: 0;
-width: 100%;
-height: 8px;
+    top: 0;
+    width: 100%;
+    height: 8px;
 }
 .board-wrapper div.bottom {
-bottom: 0;
-width: 100%;
-height: 8px;
+    bottom: 0;
+    width: 100%;
+    height: 8px;
 }
 .board-wrapper div.left {
-top: 0;
-width: 8px;
-height: 100%;
+    top: 0;
+    width: 8px;
+    height: 100%;
 }
 .board-wrapper div.right {
-top: 0;
-right: 0;
-width: 8px;
-height: 100%;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 100%;
+}
+
+.menu-wrapper {
+    padding-top: 16px;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+}
+
+#menu {
+    text-align: center;
 }
 </style>
+
 <table class="wrapper">
-<tr>
-<td>
-<div style="
-padding-top: 16px;
-top: 0;
-width: 100%;
-position: absolute;
-text-align: center;
-">
-
-<div id="menu" style="
-  text-align: center;
-">
-  <a href="../index.html">
-    <h1 style="color: black;">
-      <i class="fa fa-home"></i>
-			Tic Tac Toe
+  <tr>
+    <td>
+      <div class="menu-wrapper">
+  <div id="menu">
+    <a href="../index.html">
+      <h1 style="color: black;">
+        <i class="fa fa-home"></i>
+        Tic Tac Toe
+      </h1>
+    </a>
+    <h1 onclick="location.reload();" style="cursor: pointer;">
+      <i class="fa fa-repeat"></i>
+      Restart
     </h1>
-  </a>
-  <h1 onclick="location.reload();" style="cursor: pointer;">
-    <i class="fa fa-repeat"></i>
-    Restart
-  </h1>
+  </div>
 </div>
-</div>
+      <div class="board-wrapper">
+  <table id="board">
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+      </table>
+        <div class="styler top"></div>
+      <div class="styler bottom"></div>
+      <div class="styler left"></div>
+      <div class="styler right"></div>
+  </div>
+    </td>
+  </tr>
+</table>
 
-<div class="board-wrapper">
-<table id="board">
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</table>
-<div class="styler top"></div>
-<div class="styler bottom"></div>
-<div class="styler left"></div>
-<div class="styler right"></div>
-</div>
-</td>
-</tr>
-</table>
 <script>
 function getClickedElement(e) {
-if (e.path) { // chrome
-			return e.path[0];
-					}
-if (e.explicitOriginalTarget) { // firefox
-					return e.explicitOriginalTarget;
-							}
-if (e.target) { // edge, internet explorer
-					return e.target;
-							}
-console.error("can't find element!");
+  if (e.path) { // chrome
+    return e.path[0];
+  }
+  if (e.explicitOriginalTarget) { // firefox
+    return e.explicitOriginalTarget;
+  }
+  if (e.target) { // edge, internet explorer
+    return e.target;
+  }
+  console.error("can't find element!");
 }
 var x = "X", o = "O";
 var current = x;
 board.onclick = function(e) {
-var td = getClickedElement(e);
-if (td && !td.clicked) {
-					td.clicked = true;
-									td.innerText = current;
-									current = current==x?o:x;
-											}
+  var td = getClickedElement(e);
+  if (td && !td.clicked) {
+    td.clicked = true;
+    td.innerText = current;
+    current = current==x?o:x;
+  }
 };
+;
 </script>
       </body>
 
-<!-- Mirrored from 192.168.43.21/game/tic-tac-toe by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 07 Feb 2019 00:31:35 GMT -->
+<!-- Mirrored from 192.168.43.21/game/tic-tac-toe by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 23 Feb 2019 07:12:40 GMT -->
 </html>

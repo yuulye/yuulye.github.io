@@ -1,6 +1,10 @@
 Project T -- Read me, like you've never read before
 ===
 
+**note**: click the image for - Video Guide on YouTube
+
+[![Video Guide on YouTube](https://img.youtube.com/vi/wTzeelhLw88/0.jpg)](https://youtu.be/wTzeelhLw88)
+
 original sources:
 
   - [github.com/dwijpr/t](https://github.com/dwijpr/t): for commit histories, etc.
@@ -81,8 +85,50 @@ Atari Controller
 
 Atari ---> Nigiri (in Go/Baduk/Weiqi) [Play Go with me](https://online-go.com/player/588586/) / Randomize turn
 ---> player/AI turn
+
+**Game Design** (Still part of Game Flow Chart)
+
 ```
++-----+ xs = [0];  +-----+ xs = [0]; +-----+ xs = [0,8]; +-----+ xs = [0,8];
+|x| | |            |x| | | os = [4]; |x| | | os = [4];   |x|o| | os = [4,1];
+| | | |            | |o| |           | |o| |             | |o| |
+| | | |            | | | |           | | |x|             | | |x|
++-----+            +-----+           +-----+             +-----+
+
++-----+ xs = [0,8,6];  +-----+ xs = [0,8,6];
+|x|o| | os = [4,2];    |x|o| | os = [4,1,7];
+| |o| |                | |o| |
+|x| |x|                |x|o|x|
++-----+                +-----+
+
+Simple Map
+
+0 1 2
+3 4 5
+6 7 8
+
+### Sorted game records
+
 ```
+xs = [0, 6, 8];
+os = [1, 4, 7];
+```
+Comparing wins with sorted records after records have at least 3 pieces
+
+Wins
+
+// horizontals
+[0,1,2],
+[3,4,5],
+[6,7,8],
+// verticals
+[0,3,6],
+[1,4,7],
+[2,5,8],
+// diagonals
+[0,4,8],
+[2,4,6],
+
 ---> are there 3 connected pieces? 
 
 `- no  ---> Play till death! (fill all 9 blocks) ---> [End]
@@ -91,7 +137,9 @@ Atari ---> Nigiri (in Go/Baduk/Weiqi) [Play Go with me](https://online-go.com/pl
 
 [End] ---> Restart? ---> backTo: [User]
 
-# Additional Feature: Convos Battle!
+```
+
+## Additional Feature: Convos Battle!
 
 tracking each other pieces as persons would...
 
@@ -114,97 +162,52 @@ tracking each other pieces as persons would...
 | | | | X : "Naaaniii!??!;
 +-----+ 
 
+Still very buggy...
+
 ```
 
-[repl.it](https://repl.it/@dwijpr/t) <--- it's awesome, first time using it!
-**note** there is some errors: probably not using repl.it
+## The Game without AI
 
-# The Game without AI
+**note** - because it's the beautiful part...
 
-[User] ---> Browser
----> Game ---> 'X' and 'O' Take Turn
+```
+
+[User] ---> Browser ---> Game ---> 'X' and 'O' Take Turn
+
 ---> Game check if:
-  `---> there are 3 connected dots vertical, horizontal,
-    diagonal
-  `---> all the blocks is filled!
+
+      `---> there are 3 connected dots vertical, horizontal, diagonal
+
+      `---> all the blocks is filled!
+
 ---> Game Restart menu ---> [User]
 
-## 3 connected dots
+---------------------------------------
 
-### Possibility
-
-```
-0 1 2
-3 4 5
-6 7 8
-
-// horizontals
-[0,1,2],
-[3,4,5],
-[6,7,8],
-// verticals
-[0,3,6],
-[1,4,7],
-[2,5,6],
-// diagonals
-[0,4,8],
-[2,4,6],
-```
-
-### board (table element) index
-
-0 1 2
-3 4 5
-6 7 8
-
-### X's & O's poses arrays
+NOTE: Will not be available / be seen on latter version - just for development purpose.
 
 ```
-+-----+ xs = [0];  +-----+ xs = [0]; +-----+ xs = [0,8]; +-----+ xs = [0,8];
-|x| | |            |x| | | os = [4]; |x| | | os = [4];   |x|o| | os = [4,1];
-| | | |            | |o| |           | |o| |             | |o| |
-| | | |            | | | |           | | |x|             | | |x|
-+-----+            +-----+           +-----+             +-----+
 
-+-----+ xs = [0,8,6];  +-----+ xs = [0,8,6];
-|x|o| | os = [4,2];    |x|o| | os = [4,1,7];
-| |o| |                | |o| |
-|x| |x|                |x|o|x|
-+-----+                +-----+
-
----------------------------------------------------------
-
-wins = [
-  // horizontals
-  [0,1,2],
-  [3,4,5],
-  [6,7,8],
-  // verticals
-  [0,3,6],
-  [1,4,7],
-  [2,5,6],
-  // diagonals
-  [0,4,8],
-  [2,4,6],
-];
-```
-
-### Sorted game records
-
-```
-xs = [0, 6, 8];
-os = [1, 4, 7];
-```
-Comparing wins with sorted records after records have at least 3 pieces
-
-# AI
+## Artificial Intelligence
 
 I am not sure about this, but let me try... 
 
-## Using Scoring System [pending]
+## Dummy - AI
 
-## AI - Jon
+move #:
+1. Random(first available)
+2. Random(first available)
+3. Random(first available)
+4. Random(first available)
+5. Random(first available)
+6. Random(first available)
+7. Random(first available)
+8. Random(first available)
+9. Random(first available)
 
+## Jon - AI
+
+move #:
 1. Random(available)
 2. Random(available)
 3. Random(available)
@@ -214,6 +217,41 @@ I am not sure about this, but let me try...
 7. Check game, Prevent enemy Win, Random(available)
 8. Check game, Prevent enemy Win, Random(available)
 9. Check game, Prevent enemy Win, Random(available)
+
+-------
+
+## Extra
+
+### Possibility
+
+This part I was going to use as building better AI but I will probably run out of time...
+
+### Using Scoring System [not implemented]
+
+```
+
+From Wins we can get something like:  
+
+horizontal                                                                       
+[0,1,2],           0: 111  = 3                                                  
+[3,4,5],           1: 11   = 2                                                  
+[6,7,8],           2: 111  = 3                                                  
+// vertical        3: 11   = 2                                                  
+[0,3,6],           4: 1111 = 4,  #1 - for example                                 
+[1,4,7],           5: 11   = 2                                                  
+[2,5,8],           6: 111  = 3                                                  
+// diagonal        7: 11   = 2                                                  
+[0,4,8],           8: 111  = 3                                                  
+[2,4,6],                                                                        
+                                                                                
+```
+
+----------------------------------------------------------------------
+
+**Error**
+
+[repl.it](https://repl.it/@dwijpr/t)
+unknown error, sometime it gives error ```500```
 
 ----------------------------------------------------------------------
 

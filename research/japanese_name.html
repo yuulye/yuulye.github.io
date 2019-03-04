@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from 192.168.43.21/research/japanese_name by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Mar 2019 19:45:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="icon" href="../img/logo.png">
+    <title>yuulye</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../tp/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+      </head>
+  <body>
+    <h1>Japanese Name</h1>
+<hr>
+<input type="text" id="inputName">
+<button id="execute">To Japanese</button>
+<h2 id="japan"></h2>
+    <script>
+execute.onclick = function () {
+    console.log('executed!');
+    var maps = {
+        "a": "ka",
+        "b": "zu",
+        "c": "mi",
+        "d": "te",
+        "e": "ku",
+        "f": "lu",
+        "g": "ji",
+        "h": "ri",
+        "i": "ki",
+        "j": "zus",
+        "k": "me",
+        "l": "ta",
+        "m": "rin",
+        "n": "to",
+        "o": "mo",
+        "p": "no",
+        "q": "ke",
+        "r": "shi",
+        "s": "ari",
+        "t": "chi",
+        "u": "do",
+        "v": "ru",
+        "w": "mei",
+        "x": "na",
+        "y": "fu",
+        "z": "zi",
+    };
+    var theName = inputName.value;
+    var japanName = "";
+    for (var i = 0; i < theName.length; i++) {
+        var letter = theName[i];
+        japanName += maps[letter];
+    }
+    japan.innerHTML = japanName;
+};
+</script>
+  </body>
+
+<!-- Mirrored from 192.168.43.21/research/japanese_name by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 04 Mar 2019 19:45:26 GMT -->
+</html>

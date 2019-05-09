@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from 192.168.43.21/research/arabic_keyboard by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 May 2019 17:25:38 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <link rel="icon" href="../img/logo.png">
+    <title>yuulye</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../tp/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'Mirza';
+  src: url(../font/Mirza/Mirza-Regular.ttf);
+}
+@font-face {
+  font-family: 'Amiri';
+  src: url(../font/Amiri/Amiri-Regular.ttf);
+}
+@font-face {
+  font-family: 'QalamMajeed';
+  src: url(../font/qalammajeed.ttf);
+}
+@font-face {
+  font-family: 'MeQuran';
+  src: url(../font/me_quran.ttf);
+  /*src: url(/font/me_quran.otf.birdfont);*/
+}
+
+.arabic {
+  /*font-family: QalamMajeed;*/
+  /*font-family: MeQuran;*/
+  /*font-family: Amiri;*/
+  font-family: Mirza;
+  padding: .375em;
+  line-height: 1.825em;
+  font-size: 32px;
+  text-align: right;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+}
+table tr td {
+  padding: 8px;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+  overflow: auto;
+}
+#map .letterMap {
+  padding: 4px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 96px;
+}
+#map .letterMap
+, #map .letterMap .en
+, #map .letterMap .arabic
+{
+  display: inline-block;
+}
+#map .letterMap .arabic {
+  float: right;
+}
+
+</style>
+  </head>
+  <body>
+    
+<table>
+  <tr>
+    <td style="width: 40%;height: 50%;">
+      <textarea
+        id="arabicInput"
+        autofocus></textarea>
+    </td>
+    <td rowspan="2">
+      <textarea
+        dir="rtl"
+        class="arabic output"
+        id="arabicOutput"></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td style="height: 50%;"><div id="map"></div></td>
+  </tr>
+</table>
+<textarea>
+bis`mi !ll&^Hi !lroh`m^ni !lr&ohiy`mi {1}
+!al`ham`du lil&^Hi rob&i !l`e^lamiy`na @ {2}
+!aw` Zid` ealay`Hi warot&ili !l`qur`~a!na tar`tiy`lA! {4:73}
+</textarea>
+<div style="display: none;">
+  <div id="templateLetterMap" class="letterMap">
+    <div class="en"></div>
+    <div class="arabic"></div>
+  </div>
+</div>
+    <script>
+var alphabetMaps = "`1234567890-=qwertyuiop[]asdfghjkl;'\\zxcvbnm,./"
+  +"~!@#$%^&*()_+QWERTYUIOP{}ASDFGHJKL:\"|ZXCVBNM<>?";
+console.log("alphabetMaps", alphabetMaps.length);
+
+var preMaps = [
+  { "key": "!", "value" : "ا"},
+  { "key": "b", "value" : "ب"},
+  { "key": "t", "value" : "ت"},
+  { "key": "c", "value" : "ث"},
+  { "key": "j", "value" : "ج"},
+  { "key": "h", "value" : "ح"},
+  { "key": "v", "value" : "خ"},
+  { "key": "d", "value" : "د"},
+  { "key": "z", "value" : "ذ"},
+  { "key": "r", "value" : "ر"},
+  { "key": "Z", "value" : "ز"},
+  { "key": "s", "value" : "س"},
+  { "key": "C", "value" : "ش"},
+  { "key": "S", "value" : "ص"},
+  { "key": "D", "value" : "ض"},
+  { "key": "T", "value" : "ط"},
+  { "key": "x", "value" : "ظ"},
+  { "key": "e", "value" : "ع"},
+  { "key": "g", "value" : "غ"},
+  { "key": "f", "value" : "ف"},
+  { "key": "q", "value" : "ق"},
+  { "key": "k", "value" : "ك"},
+  { "key": "l", "value" : "ل"},
+  { "key": "m", "value" : "م"},
+  { "key": "n", "value" : "ن"},
+  { "key": "H", "value" : "ه"},
+  { "key": "w", "value" : "و"},
+  { "key": "y", "value" : "ي"},
+
+  { "key": "~", "value" : "ء"},
+
+
+  { "key": " ", "value" : " "},
+
+  { "key": "a", "value" : "َ"},
+  { "key": "o", "value" : "َ"},
+  { "key": "i", "value" : "ِ"},
+  { "key": "u", "value" : "ُ"},
+
+  { "key": "A", "value" : "ً"},
+  { "key": "I", "value" : "ٍ"},
+  { "key": "U", "value" : "ٌ"},
+
+  { "key": "`", "value" : "ْ"},
+
+  { "key": "&", "value" : "ّ"},
+
+  { "key": "^", "value" : "ٰ"},
+
+  { "key": "\n", "value" : "\n"},
+
+  { "key": "{", "value" : "﴿"},
+  { "key": "}", "value" : "﴾"},
+
+  { "key": "1", "value" : "١"},
+  { "key": "2", "value" : "٢"},
+  { "key": "3", "value" : "٣"},
+  { "key": "4", "value" : "٤"},
+  { "key": "5", "value" : "٥"},
+  { "key": "6", "value" : "٦"},
+  { "key": "7", "value" : "٧"},
+  { "key": "8", "value" : "٨"},
+  { "key": "9", "value" : "٩"},
+  { "key": "0", "value" : "٠"},
+
+  { "key": "@", "value" : "ۙ"},
+];
+
+var mapsCount = maps = {};
+for (var i = 0; i < preMaps.length; i++) {
+  var preMap = preMaps[i];
+  var key = preMap.key;
+  var value = preMap.value;
+  // console.log(preMap, key, value, mapsCount);
+
+  if (mapsCount[key]) {
+    mapsCount[key] += 1;
+    console.error(
+      'duplicated key detected!'
+      , "key", key, "value", value
+    );
+  } else {
+    mapsCount[key] = 1;
+  }
+
+  if (maps[key]) {
+    maps[key] = value;
+  }
+}
+
+var unusedKeys = [];
+for (var i = 0; i < alphabetMaps.length; i++) {
+  var key = alphabetMaps[i];
+  if (!maps[key]) {
+    unusedKeys.push(key);
+  }
+  unusedKeys.sort();
+}
+console.info("unusedKeys", unusedKeys);
+
+// console.log(
+//   "mapsCount", mapsCount
+//   , "maps", maps
+// );
+
+
+for (letter in maps) {
+  // console.log(
+  //   "letter", letter, maps[letter]
+  //   , "templateLetterMap", templateLetterMap
+  // );
+  var el = templateLetterMap.cloneNode(true);
+  el.id = "";
+  switch (letter) {
+    case " ":
+      el.getElementsByClassName('en')[0].innerText = "  : ";
+      el.getElementsByClassName('arabic')[0].innerText = "-";
+    break;
+    case "\n":
+      el.getElementsByClassName('en')[0].innerText = "\\n : ";
+      el.getElementsByClassName('arabic')[0].innerText = "-";
+    break;
+    default:
+      el.getElementsByClassName('en')[0].innerText = letter + " : ";
+      el.getElementsByClassName('arabic')[0].innerText = maps[letter];
+
+  }
+  map.appendChild(el);
+}
+
+function translate(input) {
+  var translated = "";
+  for (var i=0; i < input.length; i++) {
+    var key = input[i];
+    var char = maps[key]?maps[key]:key;
+    translated += char;
+    // console.log(key, translated);
+  }
+  return translated;
+}
+arabicInput.onkeyup = function (e) {
+  // console.log(e);
+  arabicOutput.value = translate(arabicInput.value);
+};
+</script>
+  </body>
+
+<!-- Mirrored from 192.168.43.21/research/arabic_keyboard by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 May 2019 17:25:38 GMT -->
+</html>

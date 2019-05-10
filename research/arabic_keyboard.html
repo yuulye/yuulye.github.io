@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   
-<!-- Mirrored from 192.168.43.21/research/arabic_keyboard by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 May 2019 17:25:38 GMT -->
+<!-- Mirrored from 192.168.43.21/research/arabic_keyboard by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 May 2019 05:42:54 GMT -->
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
     <link rel="icon" href="../img/logo.png">
@@ -114,6 +114,10 @@ textarea {
 bis`mi !ll&^Hi !lroh`m^ni !lr&ohiy`mi {1}
 !al`ham`du lil&^Hi rob&i !l`e^lamiy`na @ {2}
 !aw` Zid` ealay`Hi warot&ili !l`qur`~a!na tar`tiy`lA! {4:73}
+---
+taeawuz
+---
+|aeuw`zu bi!ll&^Hi mina !lC&ay`Ta!ni !lr&ajiy`mi
 </textarea>
 <div style="display: none;">
   <div id="templateLetterMap" class="letterMap">
@@ -157,7 +161,9 @@ var preMaps = [
   { "key": "y", "value" : "ي"},
 
   { "key": "~", "value" : "ء"},
-
+  { "key": "|", "value" : "أ"},
+  { "key": "/", "value" : "إ"},
+  { "key": "\\", "value" : "ؤ"},
 
   { "key": " ", "value" : " "},
 
@@ -257,6 +263,11 @@ for (letter in maps) {
   map.appendChild(el);
 }
 
+arabicInput.onkeyup = function (e) {
+  // console.log(e);
+  arabicOutput.value = translate(arabicInput.value);
+};
+
 function translate(input) {
   var translated = "";
   for (var i=0; i < input.length; i++) {
@@ -267,12 +278,8 @@ function translate(input) {
   }
   return translated;
 }
-arabicInput.onkeyup = function (e) {
-  // console.log(e);
-  arabicOutput.value = translate(arabicInput.value);
-};
 </script>
   </body>
 
-<!-- Mirrored from 192.168.43.21/research/arabic_keyboard by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 May 2019 17:25:38 GMT -->
+<!-- Mirrored from 192.168.43.21/research/arabic_keyboard by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 May 2019 05:42:54 GMT -->
 </html>

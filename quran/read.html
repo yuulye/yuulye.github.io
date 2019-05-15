@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  
+<!-- Mirrored from 192.168.43.21/quran/read by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 May 2019 07:34:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width user-scalable=no">
+    <title>Metronome</title>
+    <link rel="stylesheet" href="../tp/metronome/css/main.css">
+    <script
+      src="../tp/metronome/js/AudioContextMonkeyPatch.js">
+    </script>
+    <script src="../tp/metronome/js/metronome.js"></script>
+    <style>
+      #main {
+  border: 1px solid green;
+}
+
+#main table {
+  width: 100%;
+  font-size: 32px;
+}
+#main table tr td {
+  width: 6.25%;
+}
+    </style>
+  </head>
+  <body>
+    <div id="controls">
+      <div>
+        <a class="play" onclick="this.innerText = play();">
+          play
+        </a>
+      </div>
+      <div id="tempoBox">
+        Tempo: <span id="showTempo">120</span>BPM
+        <input
+          id="tempo"
+          type="range"
+          min="30.0"
+          max="160.0"
+          step="1"
+          value="120"
+          style="height: 20px; width: 200px"
+          onInput="
+            tempo = event.target.value;
+            document.getElementById('showTempo').innerText=tempo;
+          ">
+      </div>
+      <div>
+        Resolution:
+        <select onchange="noteResolution = this.selectedIndex;">
+          <option>16th notes
+          <option>8th notes
+          <option selected>Quarter notes
+        </select>
+      </div>
+    </div>
+    <div id="containerHere"></div>
+    <div id="main">
+  <table border="1">
+    <tr>
+              <td>bi</td>
+              <td>s</td>
+              <td>mi</td>
+              <td>l</td>
+              <td>la</td>
+              <td>.</td>
+              <td>Hi</td>
+              <td>r</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+  </table>
+</div>
+   </body>
+
+<!-- Mirrored from 192.168.43.21/quran/read by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 May 2019 07:34:26 GMT -->
+</html>

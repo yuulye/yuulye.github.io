@@ -10,56 +10,50 @@
     <link rel="stylesheet" href="../../../../tp/font-awesome-4.7.0/css/font-awesome.css">
     <style>
       body {
+        font-family: monospace;
         margin: 0;
         padding: 0;
       }
     </style>
-    <style>
-  img {
-    max-width: 100%;
-  }
-  div.nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    border-top: 1px solid black;
-    padding: 4px;
-  }
-  ._content {
-    padding: 8px;
-    padding-bottom: 64px;
-  }
+    <style>.header, .content, .comments {
+  padding: 0px 16px;
+}
 
-  .footer {
-    border-top: 1px solid silver;
-    margin-top: 32px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    font-size: 12px;
-    word-break: break-all;
-  }
+img {
+  max-width: 100%;
+}
 
-  .quote {
-    font-weight: 200;
-  }
-  .quote:before {
-    display: block;
-    height: 0;
-    content: "“";
-    margin-left: -.95em;
-    font: italic 400%/1 "Times New Roman", serif;
-    color: #999;
-  }
+.hidden {
+  display: none;
+}
 
-  a.nostyle {
-    text-decoration: none;
-  }
+.quote {
+  font-weight: 200;
+}
+.quote:before {
+  display: block;
+  height: 0;
+  content: "“";
+  margin-left: -.95em;
+  font: italic 400%/1 "Times New Roman", serif;
+  color: #999;
+}
+pre {
+  overflow: auto;
+}
 
-  pre {
-    overflow: auto;
+@media (min-width: 576px)   {
+  body {
+    font-size: 16px;
   }
+  .header, .content, .comments {
+    width: 512px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 768px)   {}
+@media (min-width: 992px)   {}
+@media (min-width: 1200px)  {}
 </style>
 
 <style>
@@ -96,7 +90,20 @@
 </style>
   </head>
   <body>
-      <div class="_content">
+      <div class="header">
+    <br/>
+    <a href="../../../../index.html">Home</a>
+    &middot;
+    <a href="#comment">Comment</a>
+    |
+    12/07 &#039;17
+    &middot;
+    Playing Card
+  </div>
+
+  <hr/>
+
+  <div class="content">
     <div style="text-align: center;padding: 16px;">
   <a href="../../../../game/playing-card.html">
     <h1>
@@ -716,14 +723,45 @@
   </div>
 </div>
   </div>
-  <div class="nav">
-    <a href="../../../../index.html" class="nostyle">
-      &nbsp;&nbsp;
-      <i class="fa fa-home"></i>
-      &nbsp;&nbsp;
-    </a>
-    12/07 &#039;17 &middot; Playing Card
+
+  <hr/>
+
+  <div class="comments" id="comment">
+    <br/>
+    <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://yuulye.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <br/>
+    <br/>
   </div>
+
+  <hr/>
+
+  <div align="center">
+  <br/>
+  <br/>
+    &copy;yuulye.github.io 2017 - 2019
+  <br/>
+  <br/>
+  <br/>
+</div>
       </body>
 
 </html>

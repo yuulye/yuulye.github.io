@@ -19,24 +19,22 @@
     </style>
       </head>
   <body>
-    <pre>&lt;?php
-$a = 2 + &quot;2&quot;;
-$b = 2 . &quot;2&quot;;
-echo &quot;$a\n&quot;;
-echo &quot;$b\n&quot;;
-echo 3 . $b - $b . &quot;\n&quot;;
-echo 3 . &quot;12&quot; - &quot;1&quot; . &quot;\n&quot;;
-echo 3 . &quot;12&quot; - &quot;21&quot; . &quot;\n&quot;;
-echo &quot;312&quot; - &quot;321&quot; . &quot;\n&quot;;
-?&gt;
+    <pre>// SoloLearn.com - JavaScript Challenge SoloLearn.com - JavaScript Challenge
+// by Stalevar
+
+function A() {
+    this.x = 50;
+    this.y = 30;
+    this.b = function() {
+        this.z = this.x % this.y;
+        return this.z;
+    };
+}
+a = new A();
+console.log(a.b());
 </pre>
 <hr/>
-<pre>4
-22
-300
-311
-291
--9
+<pre>20
 </pre>
     <script src="../../tp/jquery-3.4.1.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->

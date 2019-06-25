@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   
 <head>
     <link rel="icon" href="img/logo.png">
     <title>
               yuulye.github.io
           </title>
+    <meta charset="utf-8"/>
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1.0">
@@ -16,15 +17,24 @@
         margin: 0;
         padding: 0;
       }
+      @media (min-width: 576px)   {
+        body {
+          font-size: 16px;
+        }
+      }
     </style>
-      <style>.codeWrapper, .item, .comments {
-  padding: 0px 16px;
+      <style>.header, .quote, .codeWrapper
+, .item, .comments, .social
+, .footer, .message
+{
+  padding: 0px 4px;
 }
 
-.codeWrapper {
-  padding-bottom: 32px;
+.codeWrapper .header {
+  padding: 0;
 }
 .codeWrapper pre {
+  font-size: 10px;
   margin: 0;
 }
 .codeWrapper .editor {
@@ -110,15 +120,22 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding: 0;
 }
 
 @media (min-width: 576px)   {
   body {
-    font-size: 16px;
+    font-size: 14px;
   }
-  .codeWrapper, .item, .comments {
+  .header, .quote, .codeWrapper
+  , .item, .comments, .social
+  , .footer, .message
+  {
     width: 512px;
     margin: 0 auto;
+  }
+  .codeWrapper pre {
+    font-size: 12px;
   }
 }
 
@@ -136,37 +153,31 @@
   <body>
       <div class="posts">
           <div class="item">
-  <br/>
   <div class="header">
     <code>2019 06/14</code>
     &middot;
     <b>Why Islam?</b>
   </div>
-  <br/>
 
   <div class="content">
     This is the story about me when I try to decide that Islam is the religion I choose not a religion I was born with.
-    <a href="post/2019/06/14/why-islam/private.html">more...</a>
+    <a href="post/2019/06/14/why-islam/private.html">...more</a>
   </div>
-  <br/>
 </div>
 
 <hr/>
 
           <div class="item">
-  <br/>
   <div class="header">
     <code>2019 06/14</code>
     &middot;
     <b>How This Site Appears</b>
   </div>
-  <br/>
 
   <div class="content">
     Designing this site is a lot of fun. I tried to make this site appears as the best it can for multiple clients like terminal based web browser, mobile browsers, and desktop. See how this site is shown for those platforms.
-    <a href="post/2019/06/14/how-this-site-appears/private.html">more...</a>
+    <a href="post/2019/06/14/how-this-site-appears/private.html">...more</a>
   </div>
-  <br/>
 </div>
 
 <hr/>
@@ -201,40 +212,23 @@ s.setAttribute('data-timestamp', +new Date());
 
   <hr/>
 
-  <div class="social" align="center">
-  <br/>
+  <div class="social" id="social">
       <a href="https://github.com/yuulye">GitHub</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://www.sololearn.com/Profile/14417238">SoloLearn</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://dev.to/yuulye">DEV Community</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://twitter.com/lyeyuu">Twitter</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://www.facebook.com/yuulye">Facebook</a>
-        <br/>
-  <br/>
-</div>
+      </div>
 
 <hr/>
 
-<div align="center" class="footer">
-  <br/>
-  <br/>
-    <a href="index.html">
-    &copy;yuulye.github.io 2017 - 2019
-    </a>
-  <br/>
-  <br/>
-  <br/>
+<div class="footer">
+  &copy;<a href="index.html">yuulye.github.io</a>
+   2017 - 2019
 </div>
     <script src="tp/jquery-3.4.1.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   
 <head>
     <link rel="icon" href="../../../../../img/logo.png">
     <title>
               yuulye.github.io - How This Site Appears          </title>
+    <meta charset="utf-8"/>
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1.0">
@@ -14,6 +15,11 @@
         font-family: monospace;
         margin: 0;
         padding: 0;
+      }
+      @media (min-width: 576px)   {
+        body {
+          font-size: 16px;
+        }
       }
     </style>
     <style>.header, .content, .comments {
@@ -130,40 +136,23 @@ s.setAttribute('data-timestamp', +new Date());
 
   <hr/>
 
-  <div class="social" align="center">
-  <br/>
+  <div class="social" id="social">
       <a href="https://github.com/yuulye">GitHub</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://www.sololearn.com/Profile/14417238">SoloLearn</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://dev.to/yuulye">DEV Community</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://twitter.com/lyeyuu">Twitter</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://www.facebook.com/yuulye">Facebook</a>
-        <br/>
-  <br/>
-</div>
+      </div>
 
 <hr/>
 
-<div align="center" class="footer">
-  <br/>
-  <br/>
-    <a href="../../../../../index.html">
-    &copy;yuulye.github.io 2017 - 2019
-    </a>
-  <br/>
-  <br/>
-  <br/>
+<div class="footer">
+  &copy;<a href="../../../../../index.html">yuulye.github.io</a>
+   2017 - 2019
 </div>
     <script src="../../../../../tp/jquery-3.4.1.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->

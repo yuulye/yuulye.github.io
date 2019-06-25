@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   
 <head>
     <link rel="icon" href="img/logo.png">
     <title>
               yuulye.github.io
           </title>
+    <meta charset="utf-8"/>
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1.0">
@@ -16,15 +17,24 @@
         margin: 0;
         padding: 0;
       }
+      @media (min-width: 576px)   {
+        body {
+          font-size: 16px;
+        }
+      }
     </style>
-      <style>.codeWrapper, .item, .comments {
-  padding: 0px 16px;
+      <style>.header, .quote, .codeWrapper
+, .item, .comments, .social
+, .footer, .message
+{
+  padding: 0px 4px;
 }
 
-.codeWrapper {
-  padding-bottom: 32px;
+.codeWrapper .header {
+  padding: 0;
 }
 .codeWrapper pre {
+  font-size: 10px;
   margin: 0;
 }
 .codeWrapper .editor {
@@ -110,15 +120,22 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding: 0;
 }
 
 @media (min-width: 576px)   {
   body {
-    font-size: 16px;
+    font-size: 14px;
   }
-  .codeWrapper, .item, .comments {
+  .header, .quote, .codeWrapper
+  , .item, .comments, .social
+  , .footer, .message
+  {
     width: 512px;
     margin: 0 auto;
+  }
+  .codeWrapper pre {
+    font-size: 12px;
   }
 }
 
@@ -134,46 +151,58 @@
 </style>
   </head>
   <body>
-      <br/>
+      <div class="header">
+    <a href="#social">links</a>
+    &middot;
+    <a href="#message">message</a>
+    &middot;
+    <a href="#comments">comments</a>
+    &middot;
+    <b>yuulye.github.io</b>
+  </div>
 
-  <div class="quote" align="right">
-    <blockquote cite="https://en.wikipedia.org/wiki/HTML">
+  <div class="quote">
+    <blockquote cite="http://2ality.com/2012/02/nan-infinity.html">
 
 &ldquo;
-<b>Hypertext Markup Language (HTML)</b> is the standard markup language for documents designed to be displayed in a web browser.
+<code>NaN</code> is the only JavaScript value that is not equal to itself
 &rdquo;
-<b style="white-space: nowrap;">― Wikipedia</b>
+<b style="white-space: nowrap;">― 2ality</b>
 
 </blockquote>
-    <br/>
   </div>
 
   <hr/>
-
-  <br/>
 
   <div class="codeWrapper">
     <div class="header">
       <b>A Piece of Code</b>
       &middot;
-      <a href="codes/js/this_a_b.html">
+      <a href="codes/js/x_y_NaN.html">
         output
       </a>
     </div>
     <div class="editor">
-      <div class="highlight"><pre><span></span><span class="c1">// SoloLearn.com - JavaScript Challenge SoloLearn.com - JavaScript Challenge</span>
-<span class="c1">// by Stalevar</span>
+      <div class="highlight"><pre><span></span><span class="cm">/* SoloLearn.com - JavaScript Challenge</span>
+<span class="cm"> * by brains */</span>
 
-<span class="kd">function</span> <span class="nx">A</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">b</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">z</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">%</span> <span class="k">this</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">z</span><span class="p">;</span>
-    <span class="p">};</span>
-<span class="p">}</span>
-<span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">A</span><span class="p">();</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">b</span><span class="p">());</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kc">NaN</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="nx">y</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="k">else</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+<span class="c1">//-----------------------------</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="k">typeof</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="k">typeof</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">x</span> <span class="o">===</span> <span class="nx">y</span><span class="p">);</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="k">typeof</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="k">typeof</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">);</span>
+
+<span class="nx">a</span> <span class="o">=</span> <span class="kc">Infinity</span><span class="p">;</span>
+<span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="k">typeof</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="k">typeof</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -183,135 +212,144 @@
 
   <div class="posts">
     <div class="item">
-  <br/>
   <div class="header">
     <code>2019 06/22</code>
     &middot;
     <b>50 Shades of PHP</b>
   </div>
-  <br/>
 
   <div class="content">
     PHP is a widely-used open source general-purpose scripting language that is especially suited for web development and can be embedded into HTML. But, PHP itself is an acronym, not usual acronym though, recursive!
-    <a href="r/php.html">more...</a>
+    <a href="r/php.html">...more</a>
   </div>
-  <br/>
 </div>
 
 <hr/>
 
     <div class="item">
-  <br/>
   <div class="header">
     <code>2019 06/13</code>
     &middot;
     <b>My First Artificial Intelligence</b>
   </div>
-  <br/>
 
   <div class="content">
     Artificial intelligence (AI) is the simulation of human intelligence processes by machines, especially computer systems. After a while, I finally made the Tic Tac Toe game here playable for single player, check it out!
-    <a href="game/t.html">more...</a>
+    <a href="game/t.html">...more</a>
   </div>
-  <br/>
 </div>
 
 <hr/>
 
           <div class="item">
-  <br/>
   <div class="header">
     <code>2019 06/14</code>
     &middot;
     <b>How This Site Appears</b>
   </div>
-  <br/>
 
   <div class="content">
     Designing this site is a lot of fun. I tried to make this site appears as the best it can for multiple clients like terminal based web browser, mobile browsers, and desktop. See how this site is shown for those platforms.
-    <a href="post/2019/06/14/how-this-site-appears.html">more...</a>
+    <a href="post/2019/06/14/how-this-site-appears.html">...more</a>
   </div>
-  <br/>
 </div>
 
 <hr/>
 
           <div class="item">
-  <br/>
   <div class="header">
     <code>2017 12/26</code>
     &middot;
     <b>Snow</b>
   </div>
-  <br/>
 
   <div class="content">
     I wonder if the snow loves the trees and fields, that it kisses them so gently? And then it covers them up snug, you know, with a white quilt; and perhaps it says, &quot;Go to sleep, darlings, till the summer comes again.&quot;
-    <a href="post/2017/12/26/snow.html">more...</a>
+    <a href="post/2017/12/26/snow.html">...more</a>
   </div>
-  <br/>
 </div>
 
 <hr/>
 
           <div class="item">
-  <br/>
   <div class="header">
     <code>2017 12/08</code>
     &middot;
     <b>Web Named Colors</b>
   </div>
-  <br/>
 
   <div class="content">
     White, Black, Red, Yellow, Green, Blue. Those are names that You can use in your css value. But do You know that there are more color names?
-    <a href="post/2017/12/08/named-colors.html">more...</a>
+    <a href="post/2017/12/08/named-colors.html">...more</a>
   </div>
-  <br/>
 </div>
 
 <hr/>
 
           <div class="item">
-  <br/>
   <div class="header">
     <code>2017 12/07</code>
     &middot;
     <b>Playing Card</b>
   </div>
-  <br/>
 
   <div class="content">
     Simple puzzle game based on real playing card. No image load, so this should be fast and lightweight. Generated using html entities and JavaScript. Can you solve it?
-    <a href="post/2017/12/07/playing-card.html">more...</a>
+    <a href="post/2017/12/07/playing-card.html">...more</a>
   </div>
-  <br/>
 </div>
 
 <hr/>
 
           <div class="item">
-  <br/>
   <div class="header">
     <code>2017 12/02</code>
     &middot;
     <b>Tic Tac Toe</b>
   </div>
-  <br/>
 
   <div class="content">
     So You know about HTML, CSS and JavaScript? Want to build something with them? Those three web technologies can be used to create a web page. Have You done that? Want something more? How about creating a simple Tic Tac Toe game? This post explains how I build Tic Tac Toe Game In 3 simple steps
-    <a href="post/2017/12/02/tic-tac-toe.html">more...</a>
+    <a href="post/2017/12/02/tic-tac-toe.html">...more</a>
   </div>
-  <br/>
 </div>
 
 <hr/>
 
       </div>
 
-  <div class="comments">
-    <br/>
+  <div class="message" id="message">
+    <form action="mailto:yuulye@gmail.com">
+      <b>Message</b>
+      <label for="subject">Subject</label>
+      <br/>
+      <input
+        id="subject"
+        type="text"
+        name="subject"
+        value="[a:/] ChangeWithYourSubject"
+      />
+      <br/>
+      <label for="from">From</label>
+      <br/>
+      <input
+        id="from"
+        type="text"
+        name="from"
+        value="changewith@youremail.com"
+      />
+      <br/>
+      <label for="body">Body</label>
+      <br/>
+      <textarea id="body" name="body">HiNiceSite</textarea>
+      <br/>
+      <input type="submit" value="Send"/>
+    </form>
+  </div>
+
+  <hr/>
+
+  <div class="comments" id="comments">
     <div id="disqus_thread"></div>
 <script>
 
@@ -332,46 +370,27 @@ s.setAttribute('data-timestamp', +new Date());
 })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <br/>
-    <br/>
   </div>
 
   <hr/>
 
-  <div class="social" align="center">
-  <br/>
+  <div class="social" id="social">
       <a href="https://github.com/yuulye">GitHub</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://www.sololearn.com/Profile/14417238">SoloLearn</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://dev.to/yuulye">DEV Community</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://twitter.com/lyeyuu">Twitter</a>
-          <br/>
-      &middot;
-      <br/>
+          &middot;
           <a href="https://www.facebook.com/yuulye">Facebook</a>
-        <br/>
-  <br/>
-</div>
+      </div>
 
 <hr/>
 
-<div align="center" class="footer">
-  <br/>
-  <br/>
-    <a href="index.html">
-    &copy;yuulye.github.io 2017 - 2019
-    </a>
-  <br/>
-  <br/>
-  <br/>
+<div class="footer">
+  &copy;<a href="index.html">yuulye.github.io</a>
+   2017 - 2019
 </div>
 
   <a href="song/unintended.html"></a>

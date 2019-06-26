@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <link rel="icon" href="../../img/logo.png">
+    <title>
+              yuulye.github.io
+          </title>
+    <meta charset="utf-8"/>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../../tp/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+      body {
+        font-family: monospace;
+        margin: 0;
+        padding: 0;
+      }
+      @media (min-width: 576px)   {
+        body {
+          font-size: 16px;
+        }
+      }
+    </style>
+      </head>
+  <body>
+    <pre>&lt;?php
+
+function pixelPrint($text) {
+    $maps = [
+        &#039;a&#039; =&gt;
+        [
+            0, 1, 1, 1, 0,
+            1, 0, 0, 0, 1,
+            1, 1, 1, 1, 1,
+            1, 0, 0, 0, 1,
+            1, 0, 0, 0, 1,
+        ],
+        &#039;b&#039; =&gt;
+        [
+            1, 1, 1, 1, 0,
+            1, 0, 0, 0, 1,
+            1, 1, 1, 1, 1,
+            1, 0, 0, 0, 1,
+            1, 1, 1, 1, 0,
+        ],
+        &#039;c&#039; =&gt;
+        [
+            0, 1, 1, 1, 1,
+            1, 0, 0, 0, 0,
+            1, 0, 0, 0, 0,
+            1, 0, 0, 0, 0,
+            0, 1, 1, 1, 1,
+        ],
+        &#039;e&#039; =&gt;
+        [
+            1, 1, 1, 1, 1,
+            1, 0, 0, 0, 0,
+            1, 1, 1, 1, 0,
+            1, 0, 0, 0, 0,
+            1, 1, 1, 1, 1,
+        ],
+        &#039;l&#039; =&gt;
+        [
+            1, 0, 0, 0, 0,
+            1, 0, 0, 0, 0,
+            1, 0, 0, 0, 0,
+            1, 0, 0, 0, 0,
+            1, 1, 1, 1, 1,
+        ],
+        &#039;u&#039; =&gt;
+        [
+            1, 0, 0, 0, 1,
+            1, 0, 0, 0, 1,
+            1, 0, 0, 0, 1,
+            1, 0, 0, 0, 1,
+            0, 1, 1, 1, 0,
+        ],
+        &#039;y&#039; =&gt;
+        [
+            1, 0, 0, 0, 1,
+            0, 1, 0, 1, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 1, 0, 0,
+            0, 0, 1, 0, 0,
+        ],
+    ];
+    for ($i = 0;$i &lt; 5;$i++) {
+        //echo &#039;▏&#039;;
+        for ($j = 0;$j &lt; strlen($text);$j++) {
+            $char = $text[$j];
+            for ($k = 0;$k &lt; 5;$k++) {
+                $v = $maps[$char][$i*5+$k];
+                //echo $v?&#039;⿴&#039;:&#039;　&#039;;
+                echo $v?&#039;#&#039;:&#039; &#039;;
+            }
+            echo &#039; &#039;;
+        }
+        echo &quot;\n&quot;;
+    }
+    echo &quot;\n&quot;;
+}
+
+pixelPrint(&#039;abc&#039;);
+echo &quot;\n&quot;;
+echo &quot;\n&quot;;
+pixelPrint(&#039;yuulye&#039;);
+</pre>
+<hr/>
+<pre></pre>
+    <script src="../../tp/jquery-3.4.1.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110805480-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110805480-1');
+</script>
+
+  </body>
+
+</html>

@@ -23,9 +23,9 @@
         }
       }
     </style>
-      <style>.header, .quote, .codeWrapper
-, .item, .comments, .social
-, .footer, .message
+      <style>.header, .codeWrapper
+, .item, .comments, .links
+, .footer
 {
   padding: 0px 4px;
 }
@@ -128,8 +128,8 @@
     font-size: 14px;
   }
   .header, .quote, .codeWrapper
-  , .item, .comments, .social
-  , .footer, .message
+  , .item, .comments, .links
+  , .footer
   {
     width: 512px;
     margin: 0 auto;
@@ -152,17 +152,14 @@
   </head>
   <body>
       <div class="header">
-    <a href="#social">links</a>
-    &middot;
-    <a href="#message">message</a>
-    &middot;
-    <a href="#comments">comments</a>
-    &middot;
-    <b>yuulye.github.io</b>
-  </div>
+    <a href="#links">links</a>
+&middot;
+<a href="#comments">comments</a>
+&middot;
+<b>yuulye.github.io</b>
 
-  <div class="quote">
-    <blockquote cite="http://2ality.com/2012/02/nan-infinity.html">
+<div class="quote">
+  <blockquote cite="http://2ality.com/2012/02/nan-infinity.html">
 
 &ldquo;
 <code>NaN</code> is the only JavaScript value that is not equal to itself
@@ -170,20 +167,21 @@
 <b style="white-space: nowrap;">― 2ality</b>
 
 </blockquote>
+</div>
   </div>
 
   <hr/>
 
   <div class="codeWrapper">
     <div class="header">
-      <b>A Piece of Code</b>
-      &middot;
-      <a href="codes/js/x_y_NaN.html">
-        output
-      </a>
-    </div>
-    <div class="editor">
-      <div class="highlight"><pre><span></span><span class="cm">/* SoloLearn.com - JavaScript Challenge</span>
+  <b>A Piece of Code</b>
+  &middot;
+  <a href="codes/js/x_y_NaN.html">
+    output
+  </a>
+</div>
+<div class="editor">
+  <div class="highlight"><pre><span></span><span class="cm">/* SoloLearn.com - JavaScript Challenge</span>
 <span class="cm"> * by brains */</span>
 
 <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="kc">NaN</span><span class="p">;</span>
@@ -205,7 +203,7 @@
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="k">typeof</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="k">typeof</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">);</span>
 </pre></div>
 
-    </div>
+</div>
   </div>
 
   <hr/>
@@ -318,39 +316,38 @@
 
       </div>
 
-  <div class="message" id="message">
-    <form action="mailto:yuulye@gmail.com">
-      <b>Message</b>
-      <label for="subject">Subject</label>
-      <br/>
-      <input
-        id="subject"
-        type="text"
-        name="subject"
-        value="[a:/] ChangeWithYourSubject"
-      />
-      <br/>
-      <label for="from">From</label>
-      <br/>
-      <input
-        id="from"
-        type="text"
-        name="from"
-        value="changewith@youremail.com"
-      />
-      <br/>
-      <label for="body">Body</label>
-      <br/>
-      <textarea id="body" name="body">HiNiceSite</textarea>
-      <br/>
-      <input type="submit" value="Send"/>
-    </form>
-  </div>
-
-  <hr/>
-
   <div class="comments" id="comments">
-    <div id="disqus_thread"></div>
+    <form action="mailto:yuulye@gmail.com">
+  <b>Message</b>
+  &middot;
+  <label for="subject">Subject</label>
+  <br/>
+  <input
+    id="subject"
+    type="text"
+    name="subject"
+    value="[a:/] Subject"
+  />
+  <br/>
+  <label for="from">From</label>
+  <br/>
+  <input
+    id="from"
+    type="text"
+    name="from"
+    value="your@email.com"
+  />
+  <br/>
+  <label for="body">Body</label>
+  <br/>
+  <textarea id="body" name="body">Hi... NiceSite!</textarea>
+  <br/>
+  <input type="submit" value="Send"/>
+</form>
+
+<hr/>
+
+<div id="disqus_thread"></div>
 <script>
 
 /**
@@ -374,21 +371,20 @@ s.setAttribute('data-timestamp', +new Date());
 
   <hr/>
 
-  <div class="social" id="social">
-      <a href="https://github.com/yuulye">GitHub</a>
-          &middot;
+  <div class="footer">
+  <div class="social" id="links">
+          <a href="https://github.com/yuulye">GitHub</a>
+      <br/>
           <a href="https://www.sololearn.com/Profile/14417238">SoloLearn</a>
-          &middot;
+      <br/>
           <a href="https://dev.to/yuulye">DEV Community</a>
-          &middot;
+      <br/>
           <a href="https://twitter.com/lyeyuu">Twitter</a>
-          &middot;
+      <br/>
           <a href="https://www.facebook.com/yuulye">Facebook</a>
+      <br/>
       </div>
 
-<hr/>
-
-<div class="footer">
   &copy;<a href="index.html">yuulye.github.io</a>
    2017 - 2019
 </div>

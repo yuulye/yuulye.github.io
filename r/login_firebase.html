@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <link rel="icon" href="../img/logo.png">
+    <title>
+              yuulye.github.io
+          </title>
+    <meta charset="utf-8"/>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../tp/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+      body {
+        font-family: monospace;
+        margin: 0;
+        padding: 0;
+      }
+      pre {
+        font-size: 10px;
+      }
+      @media (min-width: 576px)   {
+        body {
+          font-size: 16px;
+        }
+      }
+    </style>
+    <style>
+#loader {
+	text-align: center;
+}
+#firebaseLoginFormWrapper {
+	display: none;
+  text-align: center;
+}
+#firebaseLoginForm {
+  display: inline-block;
+  text-align: left;
+}
+
+#firebaseLoginForm input[type="text"]
+, #firebaseLoginForm input[type="email"]
+, #firebaseLoginForm input[type="password"]
+{
+  width: 100%;
+  -moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	margin: 0;
+	padding: 0;
+}
+</style>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCC5hLus2-XzkS9-UGFKsaGow4Is3K01O0",
+    authDomain: "lyeyuu.firebaseapp.com",
+    databaseURL: "https://lyeyuu.firebaseio.com",
+    projectId: "lyeyuu",
+    storageBucket: "",
+    messagingSenderId: "1073685159978",
+    appId: "1:1073685159978:web:fd4546c3e9f6ab2c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+
+<script type="text/javascript">
+function signOut() {
+  if (firebase.auth().currentUser) {
+    firebase.auth().signOut();
+  }
+}
+function toggleSignIn() {
+  if (firebase.auth().currentUser) {
+    firebase.auth().signOut();
+  } else {
+    var email =
+      document.getElementById('email').value;
+    var password =
+      document.getElementById('password').value;
+    if (email.length < 4) {
+      alert('Please enter an email address.');
+      return;
+    }
+    if (password.length < 4) {
+      alert('Please enter a password.');
+      return;
+    }
+    firebase.auth().signInWithEmailAndPassword(
+      email, password
+    ).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password.');
+      } else {
+        alert(errorMessage);
+      }
+      console.log(error);
+    });
+  }
+}
+
+function handleSignUp() {
+  var email =
+    document.getElementById('email').value;
+  var password =
+    document.getElementById('password').value;
+  if (email.length < 4) {
+    alert('Please enter an email address.');
+    return;
+  }
+  if (password.length < 4) {
+    alert('Please enter a password.');
+    return;
+  }
+  firebase.auth().createUserWithEmailAndPassword(
+    email, password
+  ).catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    if (errorCode == 'auth/weak-password') {
+      alert('The password is too weak.');
+    } else {
+      alert(errorMessage);
+    }
+    console.log(error);
+  });
+}
+
+function sendEmailVerification() {
+  firebase.auth().currentUser
+  .sendEmailVerification().then(function() {
+    alert('Email Verification Sent!');
+  });
+}
+
+function sendPasswordReset() {
+  var email = document.getElementById('email').value;
+  firebase.auth().sendPasswordResetEmail(
+    email
+  ).then(function() {
+    alert('Password Reset Email Sent!');
+  }).catch(function(error) {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    if (errorCode == 'auth/invalid-email') {
+      alert(errorMessage);
+    } else if (errorCode == 'auth/user-not-found') {
+      alert(errorMessage);
+    }
+    console.log(error);
+  });
+}
+
+function initApp() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      signedInUser.innerHTML = user.email;
+      if (!user.emailVerified) {
+        firebaseButtonEmailVerification
+          .style.display = "inline";
+      }
+      signedInUserWrapper.style.display = "block";
+      firebaseLoginFormWrapper.style.display = "none";
+    } else {
+      signedInUserWrapper.style.display = "none";
+      firebaseLoginFormWrapper.style.display = "block";
+    }
+    loader.style.display = "none";
+  });
+
+  firebaseButtonSignIn.addEventListener(
+    'click', toggleSignIn, false
+  );
+  firebaseButtonSignOut.addEventListener(
+    'click', signOut, false
+  );
+  document.getElementById(
+    'quickstart-sign-up'
+  ).addEventListener('click', handleSignUp, false);
+  firebaseButtonEmailVerification.addEventListener(
+    'click', sendEmailVerification, false
+  );
+  document.getElementById(
+    'quickstart-password-reset'
+  ).addEventListener('click', sendPasswordReset, false);
+}
+
+function firebaseLoginFormSubmit() {
+  return false;
+}
+
+window.onload = function() {
+  initApp();
+};
+</script>
+  </head>
+  <body>
+    <div id="loader">loading... please wait</div>
+<div id="firebaseLoginFormWrapper">
+  <form
+		id="firebaseLoginForm"
+		onsubmit="return firebaseLoginFormSubmit()"
+	>
+		<div>
+			<input
+				autofocus
+				type="text"
+				id="email"
+				name="email" placeholder="Email"/>
+			<br/>
+			<input
+				type="password"
+				id="password"
+				name="password" placeholder="Password"/>
+		</div>
+
+		<div style="text-align: center;">
+			<button id="firebaseButtonSignIn">
+				Sign In
+			</button>
+			<button
+				id="quickstart-sign-up"
+				name="signup">Sign Up</button>
+			<button
+				id="quickstart-password-reset"
+			>Password Reset</button>
+		</div>
+
+  </form>
+</div>
+
+<div style="display: none;" id="signedInUserWrapper">
+	<span id="signedInUser"></span>
+	<button
+		style="display: none;"
+		id="firebaseButtonEmailVerification"
+	>Email Verification</button>
+	<button
+		id="firebaseButtonSignOut"
+	>Sign Out</button>
+</div>
+    <script src="../tp/jquery-3.4.1.js"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110805480-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110805480-1');
+</script>
+
+  </body>
+
+</html>

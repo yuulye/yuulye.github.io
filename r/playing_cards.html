@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <link rel="icon" href="../img/logo.png">
+    <title>
+              yuulye.github.io
+          </title>
+    <meta charset="utf-8"/>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../tp/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+      body {
+        font-family: monospace;
+        margin: 0;
+        padding: 0;
+      }
+      @media (min-width: 576px)   {
+        body {
+          font-size: 16px;
+        }
+      }
+    </style>
+    <style>
+  body {
+    font-family: serif;
+}
+
+.card {
+    display: inline-block ;
+    width: 32px;
+    height: 48px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background: black;
+}
+.card table {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+}
+.card.red {
+    background: red;
+    color: red;
+}
+.card.black {
+    background: black;
+}
+.card.normal {
+    background: white;
+    font-size: 12px;
+}
+.card.normal div {
+    font-size: 24px;
+}
+.card.joker {
+    font-size: 20px;
+}
+</style>
+  </head>
+  <body>
+      <div id="content"></div>
+  <div style="display: none;">
+    <div id="card">
+      <table><tr><td></td></tr></table>
+    </div>
+  </div>
+    <script src="../tp/jquery-3.4.1.js"></script>
+    <script>
+  window.onload = function() {
+function Card(color = 0, value = 0, type = 0) {
+    var self = this;
+    let classes = ["card"];
+    let symbol = "&#x1F0CF";
+
+    this.id = 0;
+    this.setId = function(id) {
+        self.id = id;
+        self.createView();
+    };
+
+    this.createView = function() {
+        let el = card.cloneNode(true);
+        el.id = "card" + self.id;
+        let td =
+          el.getElementsByTagName("td")[0];
+        td.innerHTML = symbol;
+        el.className = classes.join(" ");
+        content.appendChild(el);
+        content.innerHTML += "&nbsp;";
+    }
+
+    if(color) {
+        classes.push("red");
+    }
+
+    let joker = "normal";
+    if(!value) {
+        joker = "joker";
+    } else {
+        let ch = value>10
+            ?['J','Q','K','A'][value-11]
+            :value;
+        symbol = "<b>" + ch + "</b>";
+        symbol += "<div>";
+        if(color) {
+            if(!type) {
+                symbol += "&diams;";
+            } else {
+                symbol += "&hearts;";
+            }
+        } else {
+            if(!type) {
+                symbol += "&clubs;";
+            } else {
+                symbol += "&spades;";
+            }
+        }
+        symbol += "</div>";
+    }
+    classes.push(joker);
+
+    return self;
+}
+
+var cards = [];
+
+for(let i = 0;i < 2;i++) {
+    let card = new Card(i);
+    let id = cards.push(card) - 1;
+    card.setId(id);
+    for(let k = 0;k < 2;k++) {
+        for(let j = 2;j <= 14;j++) {
+            let l = k + i;
+            let card = new Card(
+                l == 2 ? 0 : l
+                , j, i
+            );
+            let id = cards.push(card) - 1;
+            card.setId(id);
+        }
+    }
+}
+
+console.log(cards.length);
+
+};
+
+</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110805480-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110805480-1');
+</script>
+
+  </body>
+
+</html>

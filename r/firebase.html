@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+    <link rel="icon" href="../img/logo.png">
+    <title>
+              yuulye.github.io
+          </title>
+    <meta charset="utf-8"/>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="../tp/font-awesome-4.7.0/css/font-awesome.css">
+    <style>
+      body {
+        font-family: monospace;
+        margin: 0;
+        padding: 0;
+      }
+      @media (min-width: 576px)   {
+        body {
+          font-size: 16px;
+        }
+      }
+    </style>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  </head>
+  <body>
+    <h1>Firebase</h1>
+    <script src="../tp/jquery-3.4.1.js"></script>
+    <button id="sign-in">Sign In</button>
+<pre id="account-details"></pre>
+<hr/>
+<div id="firebaseui-auth-container"></div>
+<div id="loader">Loading...</div>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCC5hLus2-XzkS9-UGFKsaGow4Is3K01O0",
+    authDomain: "lyeyuu.firebaseapp.com",
+    databaseURL: "https://lyeyuu.firebaseio.com",
+    projectId: "lyeyuu",
+    storageBucket: "",
+    messagingSenderId: "1073685159978",
+    appId: "1:1073685159978:web:fd4546c3e9f6ab2c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+
+<script>
+window.onload = () => {
+  initApp = function() {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      var displayName = user.displayName;
+      var email = user.email;
+      var emailVerified = user.emailVerified;
+      var photoURL = user.photoURL;
+      var uid = user.uid;
+      var phoneNumber = user.phoneNumber;
+      var providerData = user.providerData;
+      user.getIdToken().then(function(accessToken) {
+          document.getElementById('sign-in')
+            .textContent = 'Sign out';
+          document.getElementById('account-details')
+            .textContent = JSON.stringify({
+              displayName: displayName,
+              email: email,
+              emailVerified: emailVerified,
+              phoneNumber: phoneNumber,
+              photoURL: photoURL,
+              uid: uid,
+              accessToken: accessToken,
+              providerData: providerData
+            }, null, '  ');
+      });
+    } else {
+      document.getElementById('sign-in')
+        .textContent = 'Sign in';
+      document.getElementById('account-details')
+        .textContent = '';
+      document.getElementById('loader')
+        .style.display = 'block';
+    }
+  }, function(error) {
+      console.log(error);
+  });
+};
+  var ui = new firebaseui.auth.AuthUI(firebase.auth());
+var uiConfig = {
+  signInOptions: [
+    {
+      provider:
+        firebase.auth
+          .EmailAuthProvider.PROVIDER_ID,
+      signInMethod:
+        firebase.auth
+          .EmailAuthProvider.EMAIL_LINK_SIGN_IN_METHOD
+    }
+  ],
+  callbacks: {
+    signInSuccessWithAuthResult: function(
+      authResult, redirectUrl
+    ) {
+      initApp();
+      return false;
+    },
+    uiShown: function() {
+      document.getElementById('loader')
+        .style.display = 'none';
+    }
+  },
+};
+function signIn() {
+  ui.start('#firebaseui-auth-container', uiConfig);
+};
+
+
+  document.getElementById('sign-in')
+    .onclick = () => {
+      if (firebase.auth().currentUser) {
+        firebase.auth().signOut();
+      } else {
+        signIn();
+        ui.start('#firebaseui-auth-container', uiConfig);
+      }
+  };
+};
+</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110805480-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-110805480-1');
+</script>
+
+  </body>
+
+</html>

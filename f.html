@@ -2,7 +2,7 @@
 <html lang="en">
   
 <head>
-    <link rel="icon" href="../img/logo.png">
+    <link rel="icon" href="img/logo.png">
     <title>
               yuulye.github.io
           </title>
@@ -10,7 +10,7 @@
     <meta
       name="viewport"
       content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="../tp/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="tp/font-awesome-4.7.0/css/font-awesome.css">
     <style>
       body {
         font-family: monospace;
@@ -72,8 +72,63 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+  </head>
+  <body>
+    <div id="loader">loading... please wait</div>
+<div id="firebaseLoginFormWrapper">
+  <form
+		id="firebaseLoginForm"
+		onsubmit="return firebaseLoginFormSubmit()"
+	>
+		<div>
+			<input
+				autofocus
+				type="text"
+				id="email"
+				name="email" placeholder="Email"/>
+			<br/>
+			<input
+				type="password"
+				id="password"
+				name="password" placeholder="Password"/>
+		</div>
 
-<script type="text/javascript">
+		<div style="text-align: center;">
+			<button id="firebaseButtonSignIn">
+				Sign In
+			</button>
+			<button
+				id="quickstart-sign-up"
+				name="signup">Sign Up</button>
+			<button
+				id="quickstart-password-reset"
+			>Password Reset</button>
+		</div>
+
+  </form>
+</div>
+
+<div style="display: none;" id="signedInUserWrapper">
+  <input
+    disabled type="text" id="signedInUser"
+  />
+	<button
+		style="display: none;"
+		id="firebaseButtonEmailVerification"
+	>Email Verification</button>
+	<button
+		id="firebaseButtonChangeDisplayName"
+	>Change Display Name</button>
+	<button
+    style="display: none;"
+		id="firebaseButtonSubmitDisplayName"
+	>Submit</button>
+	<button
+		id="firebaseButtonSignOut"
+	>Sign Out</button>
+</div>
+    <script src="tp/jquery-3.4.1.js"></script>
+    <script>
 function signOut() {
   if (firebase.auth().currentUser) {
     firebase.auth().signOut();
@@ -238,63 +293,7 @@ window.onload = function() {
   initApp();
 };
 </script>
-  </head>
-  <body>
-    <div id="loader">loading... please wait</div>
-<div id="firebaseLoginFormWrapper">
-  <form
-		id="firebaseLoginForm"
-		onsubmit="return firebaseLoginFormSubmit()"
-	>
-		<div>
-			<input
-				autofocus
-				type="text"
-				id="email"
-				name="email" placeholder="Email"/>
-			<br/>
-			<input
-				type="password"
-				id="password"
-				name="password" placeholder="Password"/>
-		</div>
-
-		<div style="text-align: center;">
-			<button id="firebaseButtonSignIn">
-				Sign In
-			</button>
-			<button
-				id="quickstart-sign-up"
-				name="signup">Sign Up</button>
-			<button
-				id="quickstart-password-reset"
-			>Password Reset</button>
-		</div>
-
-  </form>
-</div>
-
-<div style="display: none;" id="signedInUserWrapper">
-  <input
-    disabled type="text" id="signedInUser"
-  />
-	<button
-		style="display: none;"
-		id="firebaseButtonEmailVerification"
-	>Email Verification</button>
-	<button
-		id="firebaseButtonChangeDisplayName"
-	>Change Display Name</button>
-	<button
-    style="display: none;"
-		id="firebaseButtonSubmitDisplayName"
-	>Submit</button>
-	<button
-		id="firebaseButtonSignOut"
-	>Sign Out</button>
-</div>
-    <script src="../tp/jquery-3.4.1.js"></script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110805480-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];

@@ -29,14 +29,15 @@
     <style>
 #loader {
 	text-align: center;
+  padding-top: 140px;
 }
 #firebaseLoginFormWrapper {
 	display: none;
   text-align: center;
+  padding-top: 128px;
 }
 #firebaseLoginForm {
   display: inline-block;
-  text-align: left;
 }
 
 #firebaseLoginForm input[type="text"]
@@ -49,6 +50,7 @@
 	box-sizing:border-box;
 	margin: 0;
 	padding: 0;
+  text-align: center;
 }
 </style>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -106,7 +108,6 @@ function toggleSignIn() {
       } else {
         alert(errorMessage);
       }
-      console.log(error);
     });
   }
 }
@@ -134,7 +135,6 @@ function handleSignUp() {
     } else {
       alert(errorMessage);
     }
-    console.log(error);
   });
 }
 
@@ -159,7 +159,6 @@ function sendPasswordReset() {
     } else if (errorCode == 'auth/user-not-found') {
       alert(errorMessage);
     }
-    console.log(error);
   });
 }
 
@@ -187,7 +186,7 @@ function initApp() {
   /* events */
 
   firebaseButtonSubmitDisplayName.onclick = e => {
-    if (signedInUser.value.length < 6) {
+    if (signedInUser.value.length < 3) {
       alert('Display name is too short!');
       return;
     }
@@ -233,14 +232,11 @@ function initApp() {
 function firebaseLoginFormSubmit() {
   return false;
 }
-
-window.onload = function() {
-  initApp();
-};
 </script>
   </head>
   <body>
     <div id="loader">loading... please wait</div>
+
 <div id="firebaseLoginFormWrapper">
   <form
 		id="firebaseLoginForm"
@@ -259,6 +255,8 @@ window.onload = function() {
 				name="password" placeholder="Password"/>
 		</div>
 
+    <br/>
+
 		<div style="text-align: center;">
 			<button id="firebaseButtonSignIn">
 				Sign In
@@ -274,25 +272,6 @@ window.onload = function() {
   </form>
 </div>
 
-<div style="display: none;" id="signedInUserWrapper">
-  <input
-    disabled type="text" id="signedInUser"
-  />
-	<button
-		style="display: none;"
-		id="firebaseButtonEmailVerification"
-	>Email Verification</button>
-	<button
-		id="firebaseButtonChangeDisplayName"
-	>Change Display Name</button>
-	<button
-    style="display: none;"
-		id="firebaseButtonSubmitDisplayName"
-	>Submit</button>
-	<button
-		id="firebaseButtonSignOut"
-	>Sign Out</button>
-</div>
     <script src="../tp/jquery-3.4.1.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110805480-1"></script>

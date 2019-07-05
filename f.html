@@ -27,16 +27,19 @@
       }
     </style>
     <style>
+</style>
+<style>
 #loader {
 	text-align: center;
+  padding-top: 140px;
 }
 #firebaseLoginFormWrapper {
 	display: none;
   text-align: center;
+  padding-top: 128px;
 }
 #firebaseLoginForm {
   display: inline-block;
-  text-align: left;
 }
 
 #firebaseLoginForm input[type="text"]
@@ -49,6 +52,22 @@
 	box-sizing:border-box;
 	margin: 0;
 	padding: 0;
+  text-align: center;
+}
+</style>
+<style>
+#signedInUserWrapper > div {
+  padding: 8px 4px 4px;
+  text-align: center;
+}
+#signedInUserWrapper #signedInUser {
+  text-align: center;
+}
+
+#signedInUserWrapper > div input
+, #signedInUserWrapper > div button
+{
+  margin: 4px;
 }
 </style>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -72,9 +91,28 @@
   firebase.initializeApp(firebaseConfig);
 </script>
 <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-auth.js"></script>
+<style>
+table#tictactoeBoard {
+  margin: auto;
+}
+table#tictactoeBoard
+, table#tictactoeBoard tr
+, table#tictactoeBoard tr td
+{
+  border: 1px solid black;
+}
+table#tictactoeBoard tr td {
+  width: 64px;
+  height: 64px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 32px;
+}
+</style>
   </head>
   <body>
     <div id="loader">loading... please wait</div>
+
 <div id="firebaseLoginFormWrapper">
   <form
 		id="firebaseLoginForm"
@@ -93,6 +131,8 @@
 				name="password" placeholder="Password"/>
 		</div>
 
+    <br/>
+
 		<div style="text-align: center;">
 			<button id="firebaseButtonSignIn">
 				Sign In
@@ -109,24 +149,54 @@
 </div>
 
 <div style="display: none;" id="signedInUserWrapper">
-  <input
-    disabled type="text" id="signedInUser"
-  />
-	<button
-		style="display: none;"
-		id="firebaseButtonEmailVerification"
-	>Email Verification</button>
-	<button
-		id="firebaseButtonChangeDisplayName"
-	>Change Display Name</button>
-	<button
-    style="display: none;"
-		id="firebaseButtonSubmitDisplayName"
-	>Submit</button>
-	<button
-		id="firebaseButtonSignOut"
-	>Sign Out</button>
+  <div>
+    <input
+      disabled type="text" id="signedInUser"
+      size="12"
+    />
+    <button
+      id="firebaseButtonChangeDisplayName"
+    >Change</button>
+    <button
+      style="display: none;"
+      id="firebaseButtonSubmitDisplayName"
+    >Submit&nbsp;</button>
+    <button
+      style="display: none;"
+      id="firebaseButtonEmailVerification"
+    >Email Verification</button>
+    <button
+      id="firebaseButtonSignOut"
+    >Sign Out</button>
+  </div>
+
+  <hr/>
+
+  <br/>
+<br/>
+<br/>
+
+<div id="tictactoeBoardWrapper">
+  <table id="tictactoeBoard">
+          <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+          <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+          <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+      </table>
 </div>
+</div>
+
     <script src="tp/jquery-3.4.1.js"></script>
     <script>
 function signOut() {
@@ -161,7 +231,6 @@ function toggleSignIn() {
       } else {
         alert(errorMessage);
       }
-      console.log(error);
     });
   }
 }
@@ -189,7 +258,6 @@ function handleSignUp() {
     } else {
       alert(errorMessage);
     }
-    console.log(error);
   });
 }
 
@@ -214,7 +282,6 @@ function sendPasswordReset() {
     } else if (errorCode == 'auth/user-not-found') {
       alert(errorMessage);
     }
-    console.log(error);
   });
 }
 
@@ -242,7 +309,7 @@ function initApp() {
   /* events */
 
   firebaseButtonSubmitDisplayName.onclick = e => {
-    if (signedInUser.value.length < 6) {
+    if (signedInUser.value.length < 3) {
       alert('Display name is too short!');
       return;
     }
@@ -288,9 +355,24 @@ function initApp() {
 function firebaseLoginFormSubmit() {
   return false;
 }
-
 window.onload = function() {
   initApp();
+  var turn = false;
+var tds = tictactoeBoard.getElementsByTagName('td');
+for (let i = 0;i < tds.length;i++) {
+  let td = tds[i];
+  td.onclick = e => {
+    if (td.clicked) return;
+    if (turn) {
+      td.innerText = 'O';
+    } else {
+      td.innerText = 'X';
+    }
+    td.clicked = true;
+    turn = !turn;
+  };
+}
+
 };
 </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
